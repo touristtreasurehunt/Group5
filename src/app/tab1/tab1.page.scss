@@ -2,3 +2,15 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+ion-content{
+  --background: url('../../assets/icon/fondo.jpg') 0 0/100% 100% no-repeat; 
+}
+
+ion-toolbar {
+  --background: #21a0db;
+}
+.centrado{
+  text-align: center;
+  margin-left: 12%;
+}
