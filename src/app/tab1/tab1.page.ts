@@ -11,7 +11,7 @@ export class Tab1Page {
 
   constructor(private router: Router) { }
 
-  goToMain() {
-    this.router.navigateByUrl('/main')
+  goToMap() {
+    this.router.navigateByUrl('/map')
   }
 }
