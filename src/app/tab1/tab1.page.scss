@@ -8,9 +8,34 @@ ion-content{
 }
 
 ion-toolbar {
-  --background: #21a0db;
-}
+  --background: transparent;
+  --ion-color-base: transparent !important;
+  text-align: center; 
+  font-weight: bold;
+
+  }
 .centrado{
   text-align: center;
   margin-left: 12%;
+}
+
+.butt{
+  width : 50% ;
+  height : 35%;
+  position: absolute;
+  top: 30%;
+  left: 25%;
+}
+
+.buttonbot{
+
+  position: absolute;
+  top: 80%;
+  
+ 
+}
+.buttonbotleft{
+
+  left: 72%;
+ 
 }
