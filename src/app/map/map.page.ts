@@ -21,12 +21,23 @@ export class MapPage{
       attribution: '',
     }).addTo(this.map);
 
-    this.map.setView([28.644800, 77.216721], 10);
+    var marker = L.marker([28.100555, -15.415743]).addTo(this.map);
+
+    this.map.setView([28.100555, -15.415743], 100);
 
 
     // marker([28.6, 77]).addTo(this.map)
     //   .bindPopup('Ionic 4 <br> Leaflet.')
     //   .openPopup();
+  }
+
+  locatePosition() {
+    this.map.locate({ }).on("locationfound", (e: any) => {
+      let newMarker = marker([e.latitude, e.longitude], {
+        draggable:false
+      }).addTo(this.map);
+      newMarker.bindPopup('You are located here!').openPopup();
+    });
   }
 
   /** Remove map when we have multiple map object */
