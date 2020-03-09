@@ -43,7 +43,7 @@ export class MapPage{
   }
 
   locatePosition() {
-    this.map.locate({ }).on("locationfound", (e: any) => {
+    this.map.locate({ watch: true }).on("locationfound", (e: any) => {
       let newMarker = marker([e.latitude, e.longitude], {
         draggable:false
       }).addTo(this.map);
