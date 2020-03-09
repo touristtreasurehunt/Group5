@@ -41,6 +41,7 @@
     "cordova-sqlite-storage": "^3.4.0",
     "core-js": "^3.3.2",
     "leaflet": "^1.6.0",
+    "leaflet-routing-machine": "^3.2.12",
     "rxjs": "~6.5.3",
     "zone.js": "^0.10.2"
   },
