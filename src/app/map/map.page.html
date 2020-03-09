@@ -1,17 +1,66 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>map</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title>Hunter Explorer</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content fullscreen>
   <div id="mapId">
   </div>
-  <ion-list>
-    <ion-button fill="outline" class="ion-float-right" size="small" (click)="goToMap()">Answer </ion-button>
-    <ion-button fill="outline" shape="round" (click)="locatePosition()">My Location</ion-button>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Pregunta 1</ion-card-subtitle>
+      <!-- <ion-card-title></ion-card-title> -->
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content> 
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col >
+          
+            <ion-button fill="outline" class="" size="small" (click)="presentToast()">111</ion-button>
+          
+        </ion-col>
+        <ion-col>
+          
+            <ion-button fill="outline" class="" size="small" (click)="presentToast()">222</ion-button>
+          
+        </ion-col>
+        <ion-col>
+          
+            <ion-button fill="outline" class="" size="small" (click)="presentModal()">333</ion-button>
+          
+        </ion-col>
+
+      </ion-row>
+      <ion-button expand="block" shape="round" (click)="locatePosition()">My Location</ion-button>
+    </ion-grid>
+ 
+  </ion-card>
+  
+ 
 </ion-content>
