@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router';
 import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 import * as L from 'leaflet';
+import { ToastController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-map',
@@ -34,10 +36,26 @@ export class MapPage{
     this.map.remove();
   }
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, public toastController: ToastController, private menu: MenuController) { }
 
   goToMap() {
     this.router.navigateByUrl('/map2')
+  }
+
+  openCustom() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Error',
+      duration: 2000,
+  
+  position: 'top',
+  cssClass: 'toastAfterHeader'
+    });
+    toast.present();
   }
 
 }
