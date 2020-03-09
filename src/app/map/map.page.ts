@@ -43,11 +43,12 @@ export class MapPage{
   }
 
   locatePosition() {
+    var picURL="../../assets/icon/antaAna.jpg";
     this.map.locate({ watch: true }).on("locationfound", (e: any) => {
       let newMarker = marker([e.latitude, e.longitude], {
         draggable:false
       }).addTo(this.map);
-      newMarker.bindPopup('You are located here!').openPopup();
+      newMarker.bindPopup("<img src='" + picURL + "'/>").openPopup();
     });
   }
 
