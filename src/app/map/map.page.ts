@@ -4,6 +4,9 @@ import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 import * as L from 'leaflet';
 import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
+
 
 @Component({
   selector: 'app-map',
@@ -36,7 +39,14 @@ export class MapPage{
     this.map.remove();
   }
   
-  constructor(private router: Router, public toastController: ToastController, private menu: MenuController) { }
+  constructor(private router: Router, public modalController: ModalController, public toastController: ToastController, private menu: MenuController) { }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalPage
+    });
+    return await modal.present();
+  }
 
   goToMap() {
     this.router.navigateByUrl('/map2')
