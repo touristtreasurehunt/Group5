@@ -16,6 +16,7 @@ import { ModalPage } from '../modal/modal.page';
 export class MapPage{
 
   map: Map;
+  public q2 : boolean = true;
   private buttonColor: string ="primary";
   private buttonColor2: string ="primary";
   private buttonColor3: string ="primary";
@@ -35,8 +36,8 @@ export class MapPage{
       position:'topright'
     }).addTo(this.map);
 
-    var marker = L.marker([28.100555, -15.415743]).addTo(this.map);
-    marker.bindPopup("<img src='../../assets/icon/antaAna.jpg'/>").openPopup();
+    var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
+    santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/>").openPopup();
 
     this.map.setView([28.100555, -15.415743], 100);
 
@@ -64,6 +65,9 @@ export class MapPage{
 
   async presentModal() {
     this.getColorRight();
+    var teatro = L.marker([28.103603, -15.413805]).addTo(this.map);
+    this.map.setView([28.103603, -15.413805], 100);
+    this.q2 = false;
     const modal = await this.modalController.create({
       component: ModalPage
     });
