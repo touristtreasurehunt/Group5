@@ -19,6 +19,12 @@ export class MapPage{
   private buttonColor: string ="primary";
   private buttonColor2: string ="primary";
   private buttonColor3: string ="primary";
+  private buttonTextColor: string ="black"; 
+  private buttonTextColor2: string ="black";
+  private buttonTextColor3: string ="black";
+  private borderColor: string = "cornflowerblue";
+  private borderColor2: string = "cornflowerblue";
+  private borderColor3: string = "cornflowerblue";
 
   ionViewDidEnter() { this.leafletMap(); }
 
@@ -85,14 +91,19 @@ export class MapPage{
 
 getColorWrong(){
   this.buttonColor="red";
+  this.buttonTextColor="white";
+  this.borderColor="#f5441e"
+  
 }
 
 getColorWrong2(){
   this.buttonColor2="red";
+  this.buttonTextColor2="white";
 }
 
 getColorRight(){
   this.buttonColor3="green";
+  this.buttonTextColor3="white";
 }
 
   async presentToast() {
