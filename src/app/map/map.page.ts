@@ -17,6 +17,11 @@ export class MapPage{
 
   map: Map;
   public q2 : boolean = true;
+  public q3 : boolean = true;
+  public q4 : boolean = true;
+  public q5 : boolean = true;
+  public q6 : boolean = true;
+  public q7 : boolean = true;
   private buttonColor: string ="primary";
   private buttonColor2: string ="primary";
   private buttonColor3: string ="primary";

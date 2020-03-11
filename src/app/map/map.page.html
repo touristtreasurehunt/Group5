@@ -4,7 +4,6 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-badge color="success">{{correctAnswers}}</ion-badge>
-    <ion-title>MAP</ion-title>
   </ion-toolbar>
 
 </ion-header>
@@ -42,28 +41,19 @@
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col>
-          
             <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-          
         </ion-col>
         <ion-col>
-          
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button>
-          
         </ion-col>
         <ion-col>
-          
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>
-          
         </ion-col>
-
       </ion-row>
-
     </ion-grid>
- 
   </ion-card>
 
-  <ion-card id="pregunta1" [hidden]="q2">
+  <ion-card [hidden]="q2">
     <ion-card-header>
       <ion-card-subtitle>Pregunta 2</ion-card-subtitle>
     </ion-card-header>
@@ -74,25 +64,131 @@
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col>
-          
             <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-          
         </ion-col>
-        <ion-col>
-          
+        <ion-col> 
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button>
-          
         </ion-col>
         <ion-col>
-          
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>
-          
         </ion-col>
-
       </ion-row>
-
     </ion-grid>
- 
   </ion-card>
-  
+
+  <ion-card [hidden]="q3">
+    <ion-card-header>
+      <ion-card-subtitle>Pregunta 3</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content> 
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+        </ion-col>
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
+        </ion-col>
+        <ion-col>    
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card [hidden]="q4">
+    <ion-card-header>
+      <ion-card-subtitle>Pregunta 4</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content> 
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+        </ion-col>
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
+        </ion-col>
+        <ion-col>    
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card [hidden]="q5">
+    <ion-card-header>
+      <ion-card-subtitle>Pregunta 5</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content> 
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+        </ion-col>
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
+        </ion-col>
+        <ion-col>    
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card [hidden]="q6">
+    <ion-card-header>
+      <ion-card-subtitle>Pregunta 6</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content> 
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+        </ion-col>
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
+        </ion-col>
+        <ion-col>    
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card [hidden]="q7">
+    <ion-card-header>
+      <ion-card-subtitle>Pregunta 7</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content> 
+    <ion-grid>
+      <ion-row class="ion-align-items-end">
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+        </ion-col>
+        <ion-col> 
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
+        </ion-col>
+        <ion-col>    
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+ 
 </ion-content>
