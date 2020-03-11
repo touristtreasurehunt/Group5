@@ -16,6 +16,9 @@ import { ModalPage } from '../modal/modal.page';
 export class MapPage{
 
   map: Map;
+  private buttonColor: string ="primary";
+  private buttonColor2: string ="primary";
+  private buttonColor3: string ="primary";
 
   ionViewDidEnter() { this.leafletMap(); }
 
@@ -33,6 +36,7 @@ export class MapPage{
     }).addTo(this.map);
 
     var marker = L.marker([28.100555, -15.415743]).addTo(this.map);
+    marker.bindPopup("<img src='../../assets/icon/antaAna.jpg'/>").openPopup();
 
     this.map.setView([28.100555, -15.415743], 100);
 
@@ -43,12 +47,11 @@ export class MapPage{
   }
 
   locatePosition() {
-    var picURL="../../assets/icon/antaAna.jpg";
     this.map.locate({ watch: true }).on("locationfound", (e: any) => {
       let newMarker = marker([e.latitude, e.longitude], {
         draggable:false
       }).addTo(this.map);
-      newMarker.bindPopup("<img src='" + picURL + "'/>").openPopup();
+      newMarker.bindPopup("You are located here!").openPopup();
     });
   }
 
@@ -60,6 +63,7 @@ export class MapPage{
   constructor(private router: Router, public modalController: ModalController, public toastController: ToastController, private menu: MenuController) { }
 
   async presentModal() {
+    this.getColorRight();
     const modal = await this.modalController.create({
       component: ModalPage
     });
@@ -70,12 +74,41 @@ export class MapPage{
     this.router.navigateByUrl('/map2')
   }
 
+  goToHome() {
+    this.router.navigateByUrl('/tab1')
+  }
+
   openCustom() {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
 
+getColorWrong(){
+  this.buttonColor="red";
+}
+
+getColorWrong2(){
+  this.buttonColor2="red";
+}
+
+getColorRight(){
+  this.buttonColor3="green";
+}
+
   async presentToast() {
+    this.getColorWrong();
+    const toast = await this.toastController.create({
+      message: 'Error',
+      duration: 2000,
+  
+  position: 'top',
+  cssClass: 'toastAfterHeader'
+    });
+    toast.present();
+  }
+
+  async presentToast2() {
+    this.getColorWrong2();
     const toast = await this.toastController.create({
       message: 'Error',
       duration: 2000,

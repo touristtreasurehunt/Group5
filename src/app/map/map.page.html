@@ -15,7 +15,7 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item><ion-button fill="outline" class="" size="small" (click)="goToHome()">home</ion-button></ion-item>
+      <ion-item menu-close href="#/home" (click)="goToHome()">Home </ion-item>
       <ion-item>Menu Item</ion-item>
       <ion-item>Menu Item</ion-item>
       <ion-item>Menu Item</ion-item>
@@ -41,17 +41,17 @@
       <ion-row class="ion-align-items-end">
         <ion-col >
           
-            <ion-button fill="outline" class="" size="small" (click)="presentToast()">111</ion-button>
+            <ion-button fill="outline" class="" size="small" [style.backgroundColor]="buttonColor" (click)="presentToast()">111</ion-button>
           
         </ion-col>
         <ion-col>
           
-            <ion-button fill="outline" class="" size="small" (click)="presentToast()">222</ion-button>
+            <ion-button fill="outline" class="" [style.backgroundColor]="buttonColor2" size="small" (click)="presentToast2()">222</ion-button>
           
         </ion-col>
         <ion-col>
           
-            <ion-button fill="outline" class="" size="small" (click)="presentModal()">333</ion-button>
+            <ion-button fill="outline" class="" [style.backgroundColor]="buttonColor3" size="small" (click)="presentModal()">333</ion-button>
           
         </ion-col>
 
