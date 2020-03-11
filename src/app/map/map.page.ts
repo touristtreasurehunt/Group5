@@ -40,15 +40,38 @@ export class MapPage{
       position:'topright'
     }).addTo(this.map);
 
+    // Markers for every place to be added, copy and paste into the corresponding presentModal function. Add image with bindPopup like the santaAna marker
+    // var gabineteL = L.marker([28.103496, -15.416548]).addTo(this.map);
+    // this.map.setView([28.103496, -15.416548], 100);
+
+    // var triana = L.marker([28.106230, -15.416309]).addTo(this.map);
+    // this.map.setView([28.106230, -15.416309], 100);
+
+    // var sanTelmo = L.marker([28.108537, -15.417436]).addTo(this.map);
+    // this.map.setView([28.108537, -15.417436], 100);
+    
+    // var gobiernoMilitar = L.marker([28.108787, -15.417609]).addTo(this.map);
+    // this.map.setView([28.108787, -15.417609], 100);
+
+    // var cabildoGC = L.marker([28.107999, -15.419810]).addTo(this.map);
+    // this.map.setView([28.107999, -15.419810], 100);
+
+    // var castilloMata = L.marker([28.107341, -15.421670]).addTo(this.map);
+    // this.map.setView([28.107341, -15.421670], 100);
+
+    // var palacete = L.marker([28.105796, -15.418519]).addTo(this.map);
+    // this.map.setView([28.105796, -15.418519], 100);
+
     var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
     santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/>").openPopup();
-
     this.map.setView([28.100555, -15.415743], 100);
 
+    // var casaColon = L.marker([28.101886, -15.414178]).addTo(this.map);
+    // this.map.setView([28.101886, -15.414178], 100);
 
-    // marker([28.6, 77]).addTo(this.map)
-    //   .bindPopup('Ionic 4 <br> Leaflet.')
-    //   .openPopup();
+    // var ermitaAbad = L.marker([28.101991, -15.413852]).addTo(this.map);
+    // this.map.setView([28.101991, -15.413852], 100);
+
   }
 
   locatePosition() {
