@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { Router } from '@angular/router';
 import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 import * as L from 'leaflet';
@@ -6,6 +6,7 @@ import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
+import { IonReorderGroup } from '@ionic/angular';
 
 
 @Component({
@@ -24,6 +25,22 @@ export class MapPage{
   private buttonTextColor2: string ="black";
   private buttonTextColor3: string ="black";
   public correctAnswers: number = 0;
+
+
+
+  doReorder(ev: any) {
+    // The `from` and `to` properties contain the index of the item
+    // when the drag started and ended, respectively
+    console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+
+    // Finish the reorder and position the item in the DOM based on
+    // where the gesture ended. This method can also be called directly
+    // by the reorder group
+    ev.detail.complete();
+  }
+
+
+
 
   ionViewDidEnter() { this.leafletMap(); }
 

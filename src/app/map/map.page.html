@@ -73,22 +73,23 @@
     </ion-card-content> 
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-col>
-          
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-          
-        </ion-col>
-        <ion-col>
-          
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button>
-          
-        </ion-col>
-        <ion-col>
-          
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>
-          
-        </ion-col>
-
+        <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+        <ion-reorder>
+          <ion-item>
+            <ion-label>
+              Item 7
+            </ion-label>
+          </ion-item>
+        </ion-reorder>
+        
+        <ion-reorder>
+          <ion-item>
+            <ion-label>
+              Item 8
+            </ion-label>
+          </ion-item>
+        </ion-reorder>
+      </ion-reorder-group>
       </ion-row>
 
     </ion-grid>
