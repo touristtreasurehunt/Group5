@@ -8,10 +8,21 @@
 }
 
 .buttons{
-
+    font-size: 12px;
     border-radius: 1rem;
 }
 
 ion-title{
     text-align: center;
+}
+
+ion-badge{
+    position: absolute;
+    top: 1.3rem;
+    left: 20rem;
+}
+
+.fixedButton{
+    margin-left: 2.4rem;
+    width: 80%;
 }
