@@ -6,7 +6,6 @@ import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
-import "leaflet-routing-machine";
 
 import { Modal2Page } from '../modal2/modal2.page';
 import { Modal3Page } from '../modal3/modal3.page';
@@ -50,22 +49,6 @@ export class MapPage{
   private buttonTextColor3: string ="black";
   public correctAnswers: number = 0;
 
-
-
-  doReorder(ev: any) {
-    // The `from` and `to` properties contain the index of the item
-    // when the drag started and ended, respectively
-    console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
-
-    // Finish the reorder and position the item in the DOM based on
-    // where the gesture ended. This method can also be called directly
-    // by the reorder group
-    ev.detail.complete();
-  }
-
-
-
-
   ionViewDidEnter() { this.leafletMap(); }
 
   leafletMap() {
@@ -81,12 +64,9 @@ export class MapPage{
       position:'topright'
     }).addTo(this.map);
 
-
-    // Markers for every place to be added, copy and paste into the corresponding presentModal function. Add image with bindPopup like the santaAna marker
-
-    var ermitaAbad = L.marker([28.101991, -15.413852]).addTo(this.map);
-    ermitaAbad.bindPopup("<img src='../../assets/icon/abad.jpg'/> Antonio Abad Hermit").openPopup();
-    this.map.setView([28.101991, -15.413852], 100);
+    var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
+    teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
+    this.map.setView([28.103632, -15.413838], 100); 
 
   }
 
@@ -108,9 +88,6 @@ export class MapPage{
 
   async presentModal() {
     this.getColorRight();
-    var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
-    teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
-    this.map.setView([28.103632, -15.413838], 100); 
     this.q2 = false;
     const modal = await this.modalController.create({
       component: ModalPage
