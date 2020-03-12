@@ -81,27 +81,6 @@ export class MapPage{
       position:'topright'
     }).addTo(this.map);
 
-    L.Routing.control({
-      
-      waypoints: [
-          L.latLng(28.103632, -15.413838),
-          L.latLng(28.103496, -15.416548),
-          L.latLng(28.106230, -15.416309),
-          L.latLng(28.108537, -15.417436),
-          L.latLng(28.108787, -15.417609),
-          L.latLng(28.107999, -15.419810),
-          L.latLng(28.107341, -15.421670),
-          L.latLng(28.105796, -15.418519),
-          L.latLng(28.100555, -15.415743),
-          L.latLng(28.100555, -15.415743),
-          L.latLng(28.101991, -15.413852)
-          
-      ],
-      routeWhileDragging: true,
-      // show: false,
-      // collapsible: false
-      
-  }).addTo(this.map);
 
     // Markers for every place to be added, copy and paste into the corresponding presentModal function. Add image with bindPopup like the santaAna marker
 
