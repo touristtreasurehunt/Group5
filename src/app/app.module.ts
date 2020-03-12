@@ -15,7 +15,7 @@ import { ModalPage } from '../app/modal/modal.page';
 
 @NgModule({
   declarations: [AppComponent, ModalPage],
-  entryComponents: [ModalPage],
+  entryComponents: [ModalPage], 
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     IonicStorageModule.forRoot()
   ],

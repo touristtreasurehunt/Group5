@@ -4,11 +4,11 @@ import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.page.html',
-  styleUrls: ['./modal.page.scss'],
+  selector: 'app-modal2',
+  templateUrl: './modal2.page.html',
+  styleUrls: ['./modal2.page.scss'],
 })
-export class ModalPage implements OnInit {
+export class Modal2Page implements OnInit {
 
   constructor(private router: Router, private nav: NavController,private modalController: ModalController) { }
 
