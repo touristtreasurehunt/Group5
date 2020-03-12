@@ -6,6 +6,16 @@ import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
+import { Modal2Page } from '../modal2/modal2.page';
+import { Modal3Page } from '../modal3/modal3.page';
+import { Modal4Page } from '../modal4/modal4.page';
+import { Modal5Page } from '../modal5/modal5.page';
+import { Modal6Page } from '../modal6/modal6.page';
+import { Modal7Page } from '../modal7/modal7.page';
+import { Modal8Page } from '../modal8/modal8.page';
+import { Modal9Page } from '../modal9/modal9.page';
+import { Modal10Page } from '../modal10/modal10.page';
+import { Modal11Page } from '../modal11/modal11.page';
 
 
 @Component({
@@ -54,38 +64,6 @@ export class MapPage{
 
     // Markers for every place to be added, copy and paste into the corresponding presentModal function. Add image with bindPopup like the santaAna marker
 
-    var triana = L.marker([28.106230, -15.416309]).addTo(this.map);
-    triana.bindPopup("<img src='../../assets/icon/triana.jpg'/> Triana").openPopup();
-    this.map.setView([28.106230, -15.416309], 100);
-
-    var sanTelmo = L.marker([28.108537, -15.417436]).addTo(this.map);
-    sanTelmo.bindPopup("<img src='../../assets/icon/st.jpg'/> San Telmo park").openPopup();
-    this.map.setView([28.108537, -15.417436], 100);
-    
-    var gobiernoMilitar = L.marker([28.108787, -15.417609]).addTo(this.map);
-    gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Don't know how to translate").openPopup();
-    this.map.setView([28.108787, -15.417609], 100);
-
-    var cabildoGC = L.marker([28.107999, -15.419810]).addTo(this.map);
-    cabildoGC.bindPopup("<img src='../../assets/icon/cabildo.jpg'/> Don't know how to translate").openPopup();
-    this.map.setView([28.107999, -15.419810], 100);
-
-    var castilloMata = L.marker([28.107341, -15.421670]).addTo(this.map);
-    castilloMata.bindPopup("<img src='../../assets/icon/mata.jpg'/> Mata castle").openPopup();
-    this.map.setView([28.107341, -15.421670], 100);
-
-    var palacete = L.marker([28.105796, -15.418519]).addTo(this.map);
-    palacete.bindPopup("<img src='../../assets/icon/palacete.jpg'/> Palace Rodríguez Quegles").openPopup();
-    this.map.setView([28.105796, -15.418519], 100);
-
-    var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
-    santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/> Santa Ana Cathedral").openPopup();
-    this.map.setView([28.100555, -15.415743], 100);
-
-    var casaColon = L.marker([28.101886, -15.414178]).addTo(this.map);
-    casaColon.bindPopup("<img src='../../assets/icon/colon.jpg'/> Coulmbus House").openPopup();
-    this.map.setView([28.101886, -15.414178], 100);
-
     var ermitaAbad = L.marker([28.101991, -15.413852]).addTo(this.map);
     ermitaAbad.bindPopup("<img src='../../assets/icon/abad.jpg'/> Antonio Abad Hermit").openPopup();
     this.map.setView([28.101991, -15.413852], 100);
@@ -127,11 +105,117 @@ export class MapPage{
     this.map.setView([28.103496, -15.416548], 100);
     this.q3 = false;
     const modal = await this.modalController.create({
-      component: ModalPage
+      component: Modal2Page
     });
     return await modal.present();
   }
 
+  async presentModalTriana() {
+    this.getColorRight();
+    var triana = L.marker([28.106230, -15.416309]).addTo(this.map);
+    triana.bindPopup("<img src='../../assets/icon/triana.jpg'/> Triana").openPopup();
+    this.map.setView([28.106230, -15.416309], 100);
+    this.q4 = false;
+    const modal = await this.modalController.create({
+      component: Modal3Page
+    });
+    return await modal.present();
+  }
+
+  async presentModalST() {
+    this.getColorRight();
+    var sanTelmo = L.marker([28.108537, -15.417436]).addTo(this.map);
+    sanTelmo.bindPopup("<img src='../../assets/icon/st.jpg'/> San Telmo park").openPopup();
+    this.map.setView([28.108537, -15.417436], 100);
+    this.q5 = false;
+    const modal = await this.modalController.create({
+      component: Modal4Page
+    });
+    return await modal.present();
+  }
+
+  async presentModalMilitar() {
+    this.getColorRight();
+    var gobiernoMilitar = L.marker([28.108787, -15.417609]).addTo(this.map);
+    gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Don't know how to translate").openPopup();
+    this.map.setView([28.108787, -15.417609], 100);
+    this.q6 = false;
+    const modal = await this.modalController.create({
+      component: Modal5Page
+    });
+    return await modal.present();
+  }
+  async presentModalCabildo() {
+    this.getColorRight();
+    var cabildoGC = L.marker([28.107999, -15.419810]).addTo(this.map);
+    cabildoGC.bindPopup("<img src='../../assets/icon/cabildo.jpg'/> Don't know how to translate").openPopup();
+    this.map.setView([28.107999, -15.419810], 100);
+    this.q7 = false;
+    const modal = await this.modalController.create({
+      component: Modal6Page
+    });
+    return await modal.present();
+  }
+
+  async presentModalMata() {
+    this.getColorRight();
+    var castilloMata = L.marker([28.107341, -15.421670]).addTo(this.map);
+    castilloMata.bindPopup("<img src='../../assets/icon/mata.jpg'/> Mata castle").openPopup();
+    this.map.setView([28.107341, -15.421670], 100);
+    this.q8 = false;
+    const modal = await this.modalController.create({
+      component: Modal7Page
+    });
+    return await modal.present();
+  }
+
+  async presentModalPalacete() {
+    this.getColorRight();
+    var palacete = L.marker([28.105796, -15.418519]).addTo(this.map);
+    palacete.bindPopup("<img src='../../assets/icon/palacete.jpg'/> Palace Rodríguez Quegles").openPopup();
+    this.map.setView([28.105796, -15.418519], 100);
+    this.q9 = false;
+    const modal = await this.modalController.create({
+      component: Modal8Page
+    });
+    return await modal.present();
+  }
+
+  async presentModalCatedral() {
+    this.getColorRight();
+    var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
+    santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/> Santa Ana Cathedral").openPopup();
+    this.map.setView([28.100555, -15.415743], 100);
+    this.q10 = false;
+    const modal = await this.modalController.create({
+      component: Modal9Page
+    });
+    return await modal.present();
+  }
+
+  async presentModalColon() {
+    this.getColorRight();
+    var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
+    santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/> Santa Ana Cathedral").openPopup();
+    this.map.setView([28.100555, -15.415743], 100);
+    this.q11 = false;
+    const modal = await this.modalController.create({
+      component: Modal10Page
+    });
+    return await modal.present();
+  }
+
+  async presentModalErmita() {
+    this.getColorRight();
+    var ermitaAbad = L.marker([28.101991, -15.413852]).addTo(this.map);
+    ermitaAbad.bindPopup("<img src='../../assets/icon/abad.jpg'/> Antonio Abad Hermit").openPopup();
+    this.map.setView([28.101991, -15.413852], 100);
+    const modal = await this.modalController.create({
+      component: Modal11Page
+    });
+    return await modal.present();
+  }
+  
   goToHome() {
     this.router.navigateByUrl('/tab1')
   }

@@ -70,7 +70,7 @@
           <ion-button  size="small" (click)="getColorWrong4()" [color]="buttonColor5" (click)="presentToast2()">555</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button (click)="getColorRight2()" [color]="buttonColor6" size="small" (click)="presentModal()">666</ion-button>
+          <ion-button (click)="getColorRight2()" [color]="buttonColor6" size="small" (click)="presentModalGabinete()">666</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -93,7 +93,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalTriana()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -116,7 +116,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalST()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -139,7 +139,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalMilitar()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -162,7 +162,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalCabildo()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -185,7 +185,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalMata()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -208,7 +208,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalPalacete()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -231,7 +231,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalCatedral()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -254,13 +254,13 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalColon()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
 
-  <ion-card [hidden]="q11">
+    <ion-card [hidden]="q11">
     <ion-card-header>
       <ion-card-subtitle>Pregunta 11</ion-card-subtitle>
     </ion-card-header>
@@ -277,7 +277,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalErmita()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
