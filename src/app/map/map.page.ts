@@ -50,13 +50,6 @@ export class MapPage{
     }).addTo(this.map);
 
     // Markers for every place to be added, copy and paste into the corresponding presentModal function. Add image with bindPopup like the santaAna marker
-    var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
-    teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
-    this.map.setView([28.103632, -15.413838], 100); 
-    
-    var gabineteL = L.marker([28.103496, -15.416548]).addTo(this.map);
-    gabineteL.bindPopup("<img src='../../assets/icon/gabinete.jpg'/> Literary Cabinet").openPopup();
-    this.map.setView([28.103496, -15.416548], 100);
 
     var triana = L.marker([28.106230, -15.416309]).addTo(this.map);
     triana.bindPopup("<img src='../../assets/icon/triana.jpg'/> Triana").openPopup();
@@ -114,8 +107,9 @@ export class MapPage{
 
   async presentModal() {
     this.getColorRight();
-    var teatro = L.marker([28.103603, -15.413805]).addTo(this.map);
-    this.map.setView([28.103603, -15.413805], 100);
+    var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
+    teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
+    this.map.setView([28.103632, -15.413838], 100); 
     this.q2 = false;
     const modal = await this.modalController.create({
       component: ModalPage
@@ -123,8 +117,16 @@ export class MapPage{
     return await modal.present();
   }
 
-  goToMap() {
-    this.router.navigateByUrl('/map2')
+  async presentModalGabinete() {
+    this.getColorRight();
+    var gabineteL = L.marker([28.103496, -15.416548]).addTo(this.map);
+    gabineteL.bindPopup("<img src='../../assets/icon/gabinete.jpg'/> Literary Cabinet").openPopup();
+    this.map.setView([28.103496, -15.416548], 100);
+    this.q3 = false;
+    const modal = await this.modalController.create({
+      component: ModalPage
+    });
+    return await modal.present();
   }
 
   goToHome() {
@@ -136,29 +138,29 @@ export class MapPage{
     this.menu.open('custom');
   }
 
-getColorWrong(){
-  this.buttonColor="red";
-  this.buttonTextColor="white";
-  
-}
-
-getColorWrong2(){
-  this.buttonColor2="red";
-  this.buttonTextColor2="white";
-}
-
-getColorRight(){
-  this.getFirstRight();
-  this.buttonColor3="green";
-  this.buttonTextColor3="white";
-  
-}
-
-getFirstRight(){
-  if(this.buttonColor3 !== "green"){
-    this.correctAnswers++;
+  getColorWrong(){
+    this.buttonColor="red";
+    this.buttonTextColor="white";
+    
   }
-}
+
+  getColorWrong2(){
+    this.buttonColor2="red";
+    this.buttonTextColor2="white";
+  }
+
+  getColorRight(){
+    this.getFirstRight();
+    this.buttonColor3="green";
+    this.buttonTextColor3="white";
+    
+  }
+
+  getFirstRight(){
+    if(this.buttonColor3 !== "green"){
+      this.correctAnswers++;
+    }
+  }
 
   async presentToast() {
     this.getColorWrong();
