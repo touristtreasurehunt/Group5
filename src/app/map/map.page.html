@@ -41,13 +41,13 @@
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col>
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+          <ion-button  class="" size="small" (click)="getColorWrong()" [color]="buttonColor" (click)="presentToast()">111</ion-button>
         </ion-col>
         <ion-col>
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button>
+          <ion-button  size="small" (click)="getColorWrong2()" [color]="buttonColor2" (click)="presentToast()">222</ion-button>
         </ion-col>
         <ion-col>
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModal()">Answer 3</ion-button>
+          <ion-button (click)="getColorRight()" [color]="buttonColor3" size="small" (click)="presentModal()">333</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -64,13 +64,13 @@
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col>
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-        </ion-col>
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button>
+          <ion-button  class="" size="small" (click)="getColorWrong3()" [color]="buttonColor4" (click)="presentToast()">444</ion-button>
         </ion-col>
         <ion-col>
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalGabinete()">Answer 3</ion-button>
+          <ion-button  size="small" (click)="getColorWrong4()" [color]="buttonColor5" (click)="presentToast2()">555</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="getColorRight2()" [color]="buttonColor6" size="small" (click)="presentModal()">666</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
