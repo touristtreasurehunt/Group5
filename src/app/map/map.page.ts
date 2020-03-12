@@ -30,12 +30,6 @@ export class MapPage{
   private buttonColor: string ="primary";
   private buttonColor2: string ="primary";
   private buttonColor3: string ="primary";
-  private buttonColor4: string ="primary";
-  private buttonColor5: string ="primary";
-  private buttonColor6: string ="primary";
-  private buttonTextColor: string ="black"; 
-  private buttonTextColor2: string ="black";
-  private buttonTextColor3: string ="black";
   public correctAnswers: number = 0;
 
 
@@ -126,7 +120,7 @@ export class MapPage{
   constructor(private router: Router, public modalController: ModalController, public toastController: ToastController, private menu: MenuController) { }
 
   async presentModal() {
-    this.getColorRight();
+
     var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
     teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
     this.map.setView([28.103632, -15.413838], 100); 
@@ -168,23 +162,13 @@ export class MapPage{
   }
   
   getColorRight(){
-    this.correctAnswers++;
+    if(this.buttonColor3 !== "success"){
+      this.correctAnswers++;
+    }
     this.buttonColor3="success";
   }
 
-  getColorWrong3(){
-    this.buttonColor4='danger';
-    
-  }
-  
-  getColorWrong4(){
-    this.buttonColor5="danger";
-  }
-  
-  getColorRight2(){
-    this.correctAnswers++;
-    this.buttonColor6="success";
-  }
+
 
 /*getFirstRight(){
   if(this.buttonColor3 !== "green"){
@@ -220,29 +204,37 @@ export class MapPage{
   getSecondAnswer(){
     let answers = document.getElementsByTagName("ion-label");
     let items = document.getElementsByName("item");
+    let button = document.getElementsByName("checkButton");
+    let counter = 0;
     if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
-      items[0].style.backgroundColor="green"; answers[0].style.color="white";
+      items[0].style.backgroundColor="#10dc60"; answers[0].style.color="white";
+      counter++;
     }else{
-      items[0].style.backgroundColor="red"; answers[0].style.color="white";
+      items[0].style.backgroundColor="#f04141"; answers[0].style.color="white";
     }
     if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
-      items[1].style.backgroundColor="green"; answers[1].style.color="white";
+      items[1].style.backgroundColor="#10dc60"; answers[1].style.color="white";
+      counter++;
     }else{
-      items[1].style.backgroundColor="red"; answers[1].style.color="white";
+      items[1].style.backgroundColor="#f04141"; answers[1].style.color="white";
     }
     if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
-      items[2].style.backgroundColor="green"; answers[2].style.color="white";
+      items[2].style.backgroundColor="#10dc60"; answers[2].style.color="white";
+      counter++;
     }else{
-      items[2].style.backgroundColor="red"; answers[2].style.color="white";
+      items[2].style.backgroundColor="#f04141"; answers[2].style.color="white";
     }
     if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
-      items[3].style.backgroundColor="green"; answers[3].style.color="white";
+      items[3].style.backgroundColor="#10dc60"; answers[3].style.color="white";
+      counter++;
     } else{
-      items[3].style.backgroundColor="red"; answers[3].style.color="white";
+      items[3].style.backgroundColor="#f04141"; answers[3].style.color="white";
     }
 
-    if(items[0].style.backgroundColor =="green" && items[1].style.backgroundColor =="green" && items[2].style.backgroundColor =="green" && items[3].style.backgroundColor =="green"){
+    if(counter == 4){
       this.correctAnswers++;
+      button[0].setAttribute("disabled", "true");
+
     }
 
   }
