@@ -29,6 +29,9 @@ export class MapPage{
   private buttonColor: string ="primary";
   private buttonColor2: string ="primary";
   private buttonColor3: string ="primary";
+  private buttonColor4: string ="primary";
+  private buttonColor5: string ="primary";
+  private buttonColor6: string ="primary";
   private buttonTextColor: string ="black"; 
   private buttonTextColor2: string ="black";
   private buttonTextColor3: string ="black";
@@ -136,32 +139,42 @@ export class MapPage{
     this.menu.open('custom');
   }
 
-getColorWrong(){
-  this.buttonColor="red";
-  this.buttonTextColor="white";
+  getColorWrong(){
+    this.buttonColor='danger';
+    
+  }
   
-}
-
-getColorWrong2(){
-  this.buttonColor2="red";
-  this.buttonTextColor2="white";
-}
-
-getColorRight(){
-  this.getFirstRight();
-  this.buttonColor3="green";
-  this.buttonTextColor3="white";
+  getColorWrong2(){
+    this.buttonColor2="danger";
+  }
   
-}
+  getColorRight(){
+    this.correctAnswers++;
+    this.buttonColor3="success";
+  }
 
-getFirstRight(){
+  getColorWrong3(){
+    this.buttonColor4='danger';
+    
+  }
+  
+  getColorWrong4(){
+    this.buttonColor5="danger";
+  }
+  
+  getColorRight2(){
+    this.correctAnswers++;
+    this.buttonColor6="success";
+  }
+
+/*getFirstRight(){
   if(this.buttonColor3 !== "green"){
     this.correctAnswers++;
   }
-}
+}*/
 
   async presentToast() {
-    this.getColorWrong();
+    
     const toast = await this.toastController.create({
       message: 'Error',
       duration: 2000,
@@ -172,8 +185,8 @@ getFirstRight(){
     toast.present();
   }
 
-  async presentToast2() {
-    this.getColorWrong2();
+  /*async presentToast2() {
+    
     const toast = await this.toastController.create({
       message: 'Error',
       duration: 2000,
@@ -182,6 +195,6 @@ getFirstRight(){
   cssClass: 'toastAfterHeader'
     });
     toast.present();
-  }
+  }*/
 
 }
