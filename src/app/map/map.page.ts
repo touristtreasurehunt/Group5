@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { Router } from '@angular/router';
 import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 import * as L from 'leaflet';
@@ -6,6 +6,7 @@ import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
+<<<<<<< HEAD
 import { Modal2Page } from '../modal2/modal2.page';
 import { Modal3Page } from '../modal3/modal3.page';
 import { Modal4Page } from '../modal4/modal4.page';
@@ -46,6 +47,22 @@ export class MapPage{
   private buttonTextColor2: string ="black";
   private buttonTextColor3: string ="black";
   public correctAnswers: number = 0;
+
+
+
+  doReorder(ev: any) {
+    // The `from` and `to` properties contain the index of the item
+    // when the drag started and ended, respectively
+    console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+
+    // Finish the reorder and position the item in the DOM based on
+    // where the gesture ended. This method can also be called directly
+    // by the reorder group
+    ev.detail.complete();
+  }
+
+
+
 
   ionViewDidEnter() { this.leafletMap(); }
 
@@ -283,4 +300,37 @@ export class MapPage{
     toast.present();
   }*/
 
+  
+  getSecondAnswer(){
+    let answers = document.getElementsByTagName("ion-label");
+    let items = document.getElementsByName("item");
+    if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
+      items[0].style.backgroundColor="green"; answers[0].style.color="white";
+    }else{
+      items[0].style.backgroundColor="red"; answers[0].style.color="white";
+    }
+    if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
+      items[1].style.backgroundColor="green"; answers[1].style.color="white";
+    }else{
+      items[1].style.backgroundColor="red"; answers[1].style.color="white";
+    }
+    if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
+      items[2].style.backgroundColor="green"; answers[2].style.color="white";
+    }else{
+      items[2].style.backgroundColor="red"; answers[2].style.color="white";
+    }
+    if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
+      items[3].style.backgroundColor="green"; answers[3].style.color="white";
+    } else{
+      items[3].style.backgroundColor="red"; answers[3].style.color="white";
+    }
+
+    if(items[0].style.backgroundColor =="green" && items[1].style.backgroundColor =="green" && items[2].style.backgroundColor =="green" && items[3].style.backgroundColor =="green"){
+      this.correctAnswers++;
+    }
+
+  }
+
 }
+
+

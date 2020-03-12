@@ -61,8 +61,49 @@
       Keep close to Nature's heart... and break clear away, once in awhile,
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
     </ion-card-content> 
+    <ion-button fill="clear" class="buttons margin" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="getSecondAnswer()">CHECK</ion-button>
     <ion-grid>
       <ion-row class="ion-align-items-end">
+<<<<<<< HEAD
+        <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+        <ion-reorder>
+          <ion-item >
+            <div name="item" class="sizeDiv">
+              <ion-label>
+                Answer 1 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+        <ion-reorder>
+          <ion-item>
+            <div name="item" class="sizeDiv">
+              <ion-label>
+                Answer 2 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+        <ion-reorder>
+          <ion-item>
+            <div name="item" class="sizeDiv">
+              <ion-label>
+                Answer 3 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+        <ion-reorder>
+          <ion-item>
+            <div name="item" class="sizeDiv">
+              <ion-label>
+                Answer 4 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+      </ion-reorder-group>
+=======
         <ion-col>
           <ion-button  class="" size="small" (click)="getColorWrong3()" [color]="buttonColor4" (click)="presentToast()">444</ion-button>
         </ion-col>
@@ -72,6 +113,7 @@
         <ion-col>
           <ion-button (click)="getColorRight2()" [color]="buttonColor6" size="small" (click)="presentModalGabinete()">666</ion-button>
         </ion-col>
+>>>>>>> 992653dfd29bd2397b9aef4f7b20b4a0ad1c8aa5
       </ion-row>
     </ion-grid>
   </ion-card>
