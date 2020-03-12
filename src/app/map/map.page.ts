@@ -45,22 +45,6 @@ export class MapPage{
   public lableText: string = "";
   public inputValue: string = "";
 
-
-
-  doReorder(ev: any) {
-    // The `from` and `to` properties contain the index of the item
-    // when the drag started and ended, respectively
-    console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
-
-    // Finish the reorder and position the item in the DOM based on
-    // where the gesture ended. This method can also be called directly
-    // by the reorder group
-    ev.detail.complete();
-  }
-
-
-
-
   ionViewDidEnter() { this.leafletMap(); }
 
   leafletMap() {
@@ -76,11 +60,9 @@ export class MapPage{
       position:'topright'
     }).addTo(this.map);
 
-    // Markers for every place to be added, copy and paste into the corresponding presentModal function. Add image with bindPopup like the santaAna marker
-
-    var ermitaAbad = L.marker([28.101991, -15.413852]).addTo(this.map);
-    ermitaAbad.bindPopup("<img src='../../assets/icon/abad.jpg'/> Antonio Abad Hermit").openPopup();
-    this.map.setView([28.101991, -15.413852], 100);
+    var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
+    teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
+    this.map.setView([28.103632, -15.413838], 100); 
 
   }
 
