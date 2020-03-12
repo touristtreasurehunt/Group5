@@ -6,7 +6,7 @@ import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
-
+import "leaflet-routing-machine";
 
 @Component({
   selector: 'app-map',
@@ -51,6 +51,19 @@ export class MapPage{
     L.control.zoom({
       position:'topright'
     }).addTo(this.map);
+
+    L.Routing.control({
+      
+      waypoints: [
+          L.latLng(28.103632, -15.413838),
+          L.latLng(28.103496, -15.416548),
+          L.latLng(28.106230, -15.416309)
+      ],
+      routeWhileDragging: true,
+      show: false,
+      collapsible: false
+      
+  }).addTo(this.map);
 
     // Markers for every place to be added, copy and paste into the corresponding presentModal function. Add image with bindPopup like the santaAna marker
 

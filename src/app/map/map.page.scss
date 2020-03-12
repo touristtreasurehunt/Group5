@@ -26,3 +26,11 @@ ion-badge{
     margin-left: 2.4rem;
     width: 80%;
 }
+
+.leaflet-routing-container .leaflet-bar .leaflet-routing-container-hide .leaflet-control{
+    display: none;
+    font-size: 0;
+}
+.leaflet-routing-alt {
+    font-size: 0;
+}
