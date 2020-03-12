@@ -18,6 +18,11 @@ export class MapPage{
 
   map: Map;
   public q2 : boolean = true;
+  public q3 : boolean = true;
+  public q4 : boolean = true;
+  public q5 : boolean = true;
+  public q6 : boolean = true;
+  public q7 : boolean = true;
   private buttonColor: string ="primary";
   private buttonColor2: string ="primary";
   private buttonColor3: string ="primary";
@@ -179,4 +184,37 @@ getFirstRight(){
     toast.present();
   }
 
+  
+  getSecondAnswer(){
+    let answers = document.getElementsByTagName("ion-label");
+    let items = document.getElementsByName("item");
+    if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
+      items[0].style.backgroundColor="green"; answers[0].style.color="white";
+    }else{
+      items[0].style.backgroundColor="red"; answers[0].style.color="white";
+    }
+    if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
+      items[1].style.backgroundColor="green"; answers[1].style.color="white";
+    }else{
+      items[1].style.backgroundColor="red"; answers[1].style.color="white";
+    }
+    if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
+      items[2].style.backgroundColor="green"; answers[2].style.color="white";
+    }else{
+      items[2].style.backgroundColor="red"; answers[2].style.color="white";
+    }
+    if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
+      items[3].style.backgroundColor="green"; answers[3].style.color="white";
+    } else{
+      items[3].style.backgroundColor="red"; answers[3].style.color="white";
+    }
+
+    if(items[0].style.backgroundColor =="green" && items[1].style.backgroundColor =="green" && items[2].style.backgroundColor =="green" && items[3].style.backgroundColor =="green"){
+      this.correctAnswers++;
+    }
+
+  }
+
 }
+
+

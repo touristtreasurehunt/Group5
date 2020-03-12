@@ -12,17 +12,27 @@
     border-radius: 1rem;
 }
 
+.margin{
+    margin-left: 35.5vw;
+}
+
 ion-title{
     text-align: center;
 }
 
 ion-badge{
     position: absolute;
-    top: 1.3rem;
-    left: 20rem;
+    top: 1.1rem;
+    left: 17rem;
 }
 
 .fixedButton{
     margin-left: 2.4rem;
     width: 80%;
 }
+
+.sizeDiv{
+    width: 100%;
+    height: 2rem;
+}
+
