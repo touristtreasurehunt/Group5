@@ -6,7 +6,7 @@ import { ToastController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
-<<<<<<< HEAD
+
 import { Modal2Page } from '../modal2/modal2.page';
 import { Modal3Page } from '../modal3/modal3.page';
 import { Modal4Page } from '../modal4/modal4.page';
@@ -17,6 +17,7 @@ import { Modal8Page } from '../modal8/modal8.page';
 import { Modal9Page } from '../modal9/modal9.page';
 import { Modal10Page } from '../modal10/modal10.page';
 import { Modal11Page } from '../modal11/modal11.page';
+import { IonReorderGroup } from '@ionic/angular';
 
 
 @Component({
