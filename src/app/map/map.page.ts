@@ -19,7 +19,6 @@ import { Modal10Page } from '../modal10/modal10.page';
 import { Modal11Page } from '../modal11/modal11.page';
 import { IonReorderGroup } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.page.html',
@@ -132,7 +131,7 @@ export class MapPage{
   async presentModalMilitar() {
     this.getColorRight();
     var gobiernoMilitar = L.marker([28.108787, -15.417609]).addTo(this.map);
-    gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Don't know how to translate").openPopup();
+    gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Gran Canaria military command").openPopup();
     this.map.setView([28.108787, -15.417609], 100);
     this.q6 = false;
     const modal = await this.modalController.create({
@@ -143,7 +142,7 @@ export class MapPage{
   async presentModalCabildo() {
     this.getColorRight();
     var cabildoGC = L.marker([28.107999, -15.419810]).addTo(this.map);
-    cabildoGC.bindPopup("<img src='../../assets/icon/cabildo.jpg'/> Don't know how to translate").openPopup();
+    cabildoGC.bindPopup("<img src='../../assets/icon/cabildo.jpg'/> Gran Canaria Island Council ").openPopup();
     this.map.setView([28.107999, -15.419810], 100);
     this.q7 = false;
     const modal = await this.modalController.create({
@@ -268,6 +267,11 @@ export class MapPage{
     toast.present();
   }*/
 
+  doReorder(ev: any){
+    console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+    ev.detail.complete();
+  }
+
  
   getSecondAnswer(){
     let answers = document.getElementsByTagName("ion-label");
@@ -308,11 +312,56 @@ export class MapPage{
 
   }
 
-
-
   inputValueToLable(){
-    console.log(this.inputValue);
-    this.lableText = this.inputValue;
+    if(this.inputValue == "Correct"){
+      console.log("Correct");
+      if(this.correctAnswers == 2){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalTriana()
+    }else{
+      this.presentToast();
+    }
+  }
+
+  inputValueToLable2(){
+    if(this.inputValue == "Correct"){
+      console.log("Correct");
+      if(this.correctAnswers == 5){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalCabildo()
+    }else{
+      this.presentToast();
+    }
+  }
+
+  inputValueToLable3(){
+    if(this.inputValue == "Correct"){
+      console.log("Correct");
+      if(this.correctAnswers == 8){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalCatedral()
+    }else{
+      this.presentToast();
+    }
+  }
+
+  inputValueToLable4(){
+    if(this.inputValue == "Correct"){
+      console.log("Correct");
+      if(this.correctAnswers == 10){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalErmita()
+    }else{
+      this.presentToast();
+    }
   }
 
 }
