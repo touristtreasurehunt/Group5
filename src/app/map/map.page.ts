@@ -19,7 +19,6 @@ import { Modal10Page } from '../modal10/modal10.page';
 import { Modal11Page } from '../modal11/modal11.page';
 import { IonReorderGroup } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.page.html',
@@ -144,7 +143,7 @@ export class MapPage{
   async presentModalMilitar() {
     
     var gobiernoMilitar = L.marker([28.108787, -15.417609]).addTo(this.map);
-    gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Don't know how to translate").openPopup();
+    gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Gran Canaria military command").openPopup();
     this.map.setView([28.108787, -15.417609], 100);
     this.q6 = false;
     const modal = await this.modalController.create({
@@ -155,7 +154,7 @@ export class MapPage{
   async presentModalCabildo() {
     
     var cabildoGC = L.marker([28.107999, -15.419810]).addTo(this.map);
-    cabildoGC.bindPopup("<img src='../../assets/icon/cabildo.jpg'/> Don't know how to translate").openPopup();
+    cabildoGC.bindPopup("<img src='../../assets/icon/cabildo.jpg'/> Gran Canaria Island Council ").openPopup();
     this.map.setView([28.107999, -15.419810], 100);
     this.q7 = false;
     const modal = await this.modalController.create({
@@ -285,7 +284,6 @@ export class MapPage{
     ev.detail.complete();
   }
 
-
   getSecondAnswer(){
     let answers = document.getElementsByTagName("ion-label");
     let items = document.getElementsByName("item");
@@ -325,14 +323,93 @@ export class MapPage{
 
   }
 
+
+  getSevenAnswer(){
+    let answers = document.getElementsByTagName("ion-label");
+    let items = document.getElementsByName("item2");
+    let button = document.getElementsByName("checkButton");
+    let nextQuestion = document.getElementsByName('hidden');
+    let counter = 0;
+    if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
+      items[0].style.backgroundColor="#10dc60"; answers[4].style.color="white";
+      counter++;
+    }else{
+      items[0].style.backgroundColor="#f04141"; answers[4].style.color="white";
+    }
+    if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
+      items[1].style.backgroundColor="#10dc60"; answers[5].style.color="white";
+      counter++;
+    }else{
+      items[1].style.backgroundColor="#f04141"; answers[5].style.color="white";
+    }
+    if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
+      items[2].style.backgroundColor="#10dc60"; answers[6].style.color="white";
+      counter++;
+    }else{
+      items[2].style.backgroundColor="#f04141"; answers[6].style.color="white";
+    }
+    if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
+      items[3].style.backgroundColor="#10dc60"; answers[7].style.color="white";
+      counter++;
+    } else{
+      items[3].style.backgroundColor="#f04141"; answers[7].style.color="white";
+    }
+
+    if(counter == 4){
+      this.correctAnswers++;
+      button[1].setAttribute("disabled", "true");
+      nextQuestion[1].classList.remove('hidden');
+    }
+
+  }
+
   inputValueToLable(){
     if(this.inputValue == "Correct"){
-      console.log("correcto");
+      console.log("Correct");
       if(this.correctAnswers == 2){
         this.correctAnswers++;
       }
       
       this.presentModalTriana()
+    }else{
+      this.presentToast();
+    }
+  }
+
+  inputValueToLable2(){
+    if(this.inputValue == "Correct"){
+      console.log("Correct");
+      if(this.correctAnswers == 5){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalCabildo()
+    }else{
+      this.presentToast();
+    }
+  }
+
+  inputValueToLable3(){
+    if(this.inputValue == "Correct"){
+      console.log("Correct");
+      if(this.correctAnswers == 8){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalCatedral()
+    }else{
+      this.presentToast();
+    }
+  }
+
+  inputValueToLable4(){
+    if(this.inputValue == "Correct"){
+      console.log("Correct");
+      if(this.correctAnswers == 10){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalErmita()
     }else{
       this.presentToast();
     }
@@ -363,5 +440,32 @@ export class MapPage{
   getCheckAnswer2(){
       this.presentModalST();
   }
+
+
+
+  getCheckTAnswer8(check){
+    if(check.name == "Answer1"){
+     
+      this.A1 = check.selected;
+      console.log(this.A1);
+      
+    }
+    if(check.name == "Answer2"){
+     this.A2 = check.selected;
+     console.log(this.A2);
+     this.presentModalPalacete();
+      this.buttonCheck = false;
+      this.correctAnswers++;
+   }
+   if(check.name == "Answer3"){
+     this.A3 = check.selected;
+     console.log(this.A3);
+   }
+    
+   }
+ 
+   getCheckAnswer82(){
+       this.presentModalPalacete();
+   }
 
 }

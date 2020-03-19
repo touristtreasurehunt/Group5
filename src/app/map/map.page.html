@@ -169,7 +169,7 @@
             <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalMilitar()">Answer 3</ion-button>   
+            <ion-button  (click)="getColorRight()" fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalMilitar()">Answer 3</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -185,15 +185,11 @@
     </ion-card-content> 
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-        </ion-col>
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
-        </ion-col>
-        <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalCabildo()">Answer 3</ion-button>   
-        </ion-col>
+        <ion-col>   
+          <ion-input #myInput type="text" 
+          [(ngModel)]="inputValue2"></ion-input> 
+            <ion-button class="buttons" size="small" (click)="inputValueToLable2()">CHECK</ion-button>  
+        </ion-col> 
       </ion-row>
     </ion-grid>
   </ion-card>
@@ -206,17 +202,53 @@
       Keep close to Nature's heart... and break clear away, once in awhile,
       and climb a mountain or spend a week in the woods. Wash your spirit clean.
     </ion-card-content> 
+    <ion-button fill="clear" class="buttons margin" name="checkButton" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="getSevenAnswer()">CHECK</ion-button>
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+        <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+        <ion-reorder>
+          <ion-item >
+            <div name="item2" class="sizeDiv">
+              <ion-label>
+                Answer 1 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+        <ion-reorder>
+          <ion-item>
+            <div name="item2" class="sizeDiv">
+              <ion-label>
+                Answer 2 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+        <ion-reorder>
+          <ion-item>
+            <div name="item2" class="sizeDiv">
+              <ion-label>
+                Answer 3 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+        <ion-reorder>
+          <ion-item>
+            <div name="item2" class="sizeDiv">
+              <ion-label>
+                Answer 4 Keep close to Nature's heart
+              </ion-label>
+            </div>
+          </ion-item>
+        </ion-reorder>
+      </ion-reorder-group>
+
+        <ion-col>
+          <ion-button name="hidden" class="hidden" size="small" (click)="presentModalMata()">Next Question</ion-button>
         </ion-col>
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
-        </ion-col>
-        <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalMata()">Answer 3</ion-button>   
-        </ion-col>
+
+        
       </ion-row>
     </ion-grid>
   </ion-card>
@@ -231,15 +263,13 @@
     </ion-card-content> 
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-        </ion-col>
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
-        </ion-col>
-        <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalPalacete()">Answer 3</ion-button>   
-        </ion-col>
+       <ion-list>
+         <ion-item *ngFor="let check of data" (click)="getCheckTAnswer8(check)">
+          <ion-label>{{ check.name }}</ion-label>
+          <ion-checkbox [(ngModel)]="check.selected"></ion-checkbox>
+         </ion-item>
+         <ion-button class="buttons" size="small" (click)="getCheckAnswer82()" [hidden]="buttonCheck">CHECK</ion-button>
+       </ion-list>
       </ion-row>
     </ion-grid>
   </ion-card>
@@ -254,15 +284,11 @@
     </ion-card-content> 
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-        </ion-col>
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
-        </ion-col>
-        <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalCatedral()">Answer 3</ion-button>   
-        </ion-col>
+        <ion-col>   
+          <ion-input #myInput type="text" 
+          [(ngModel)]="inputValue3"></ion-input> 
+            <ion-button class="buttons" size="small" (click)="inputValueToLable3()">CHECK</ion-button>  
+        </ion-col> 
       </ion-row>
     </ion-grid>
   </ion-card>
@@ -300,15 +326,11 @@
     </ion-card-content> 
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-        </ion-col>
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
-        </ion-col>
-        <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalErmita()">Answer 3</ion-button>   
-        </ion-col>
+        <ion-col>   
+          <ion-input #myInput type="text" 
+          [(ngModel)]="inputValue4"></ion-input> 
+            <ion-button class="buttons" size="small" (click)="inputValueToLable4()">CHECK</ion-button>  
+        </ion-col> 
       </ion-row>
     </ion-grid>
   </ion-card>

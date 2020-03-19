@@ -41,6 +41,7 @@
     "core-js": "^3.6.4",
     "leaflet": "^1.6.0",
     "leaflet-routing-machine": "^3.2.12",
+    "react": "^16.13.0",
     "rxjs": "^6.5.4",
     "zone.js": "^0.10.2"
   },
