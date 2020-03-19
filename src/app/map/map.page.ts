@@ -38,12 +38,24 @@ export class MapPage{
   public q9 : boolean = true;
   public q10 : boolean = true;
   public q11 : boolean = true;
+  public buttonCheck : boolean = true;
   private buttonColor: string ="primary";
   private buttonColor2: string ="primary";
   private buttonColor3: string ="primary";
   public correctAnswers: number = 0;
   public lableText: string = "";
   public inputValue: string = "";
+
+
+  data = [
+      { name: 'Answer1', selected: "false" },
+      { name: 'Answer2', selected: "false" },
+      { name: 'Answer3', selected: "false" }
+    ];
+  
+    public A1 = "";
+    public A2 = "";
+    public A3 = "";
 
   ionViewDidEnter() { this.leafletMap(); }
 
@@ -106,7 +118,7 @@ export class MapPage{
   }
 
   async presentModalTriana() {
-    this.getColorRight();
+    
     var triana = L.marker([28.106230, -15.416309]).addTo(this.map);
     triana.bindPopup("<img src='../../assets/icon/triana.jpg'/> Triana").openPopup();
     this.map.setView([28.106230, -15.416309], 100);
@@ -118,7 +130,7 @@ export class MapPage{
   }
 
   async presentModalST() {
-    this.getColorRight();
+    
     var sanTelmo = L.marker([28.108537, -15.417436]).addTo(this.map);
     sanTelmo.bindPopup("<img src='../../assets/icon/st.jpg'/> San Telmo park").openPopup();
     this.map.setView([28.108537, -15.417436], 100);
@@ -130,7 +142,7 @@ export class MapPage{
   }
 
   async presentModalMilitar() {
-    this.getColorRight();
+    
     var gobiernoMilitar = L.marker([28.108787, -15.417609]).addTo(this.map);
     gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Don't know how to translate").openPopup();
     this.map.setView([28.108787, -15.417609], 100);
@@ -141,7 +153,7 @@ export class MapPage{
     return await modal.present();
   }
   async presentModalCabildo() {
-    this.getColorRight();
+    
     var cabildoGC = L.marker([28.107999, -15.419810]).addTo(this.map);
     cabildoGC.bindPopup("<img src='../../assets/icon/cabildo.jpg'/> Don't know how to translate").openPopup();
     this.map.setView([28.107999, -15.419810], 100);
@@ -153,7 +165,7 @@ export class MapPage{
   }
 
   async presentModalMata() {
-    this.getColorRight();
+    
     var castilloMata = L.marker([28.107341, -15.421670]).addTo(this.map);
     castilloMata.bindPopup("<img src='../../assets/icon/mata.jpg'/> Mata castle").openPopup();
     this.map.setView([28.107341, -15.421670], 100);
@@ -165,7 +177,7 @@ export class MapPage{
   }
 
   async presentModalPalacete() {
-    this.getColorRight();
+    
     var palacete = L.marker([28.105796, -15.418519]).addTo(this.map);
     palacete.bindPopup("<img src='../../assets/icon/palacete.jpg'/> Palace Rodríguez Quegles").openPopup();
     this.map.setView([28.105796, -15.418519], 100);
@@ -177,7 +189,7 @@ export class MapPage{
   }
 
   async presentModalCatedral() {
-    this.getColorRight();
+    
     var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
     santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/> Santa Ana Cathedral").openPopup();
     this.map.setView([28.100555, -15.415743], 100);
@@ -189,7 +201,7 @@ export class MapPage{
   }
 
   async presentModalColon() {
-    this.getColorRight();
+    
     var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
     santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/> Santa Ana Cathedral").openPopup();
     this.map.setView([28.100555, -15.415743], 100);
@@ -201,7 +213,7 @@ export class MapPage{
   }
 
   async presentModalErmita() {
-    this.getColorRight();
+    
     var ermitaAbad = L.marker([28.101991, -15.413852]).addTo(this.map);
     ermitaAbad.bindPopup("<img src='../../assets/icon/abad.jpg'/> Antonio Abad Hermit").openPopup();
     this.map.setView([28.101991, -15.413852], 100);
@@ -268,7 +280,12 @@ export class MapPage{
     toast.present();
   }*/
 
- 
+  doReorder(ev: any) {
+    console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
+    ev.detail.complete();
+  }
+
+
   getSecondAnswer(){
     let answers = document.getElementsByTagName("ion-label");
     let items = document.getElementsByName("item");
@@ -308,13 +325,43 @@ export class MapPage{
 
   }
 
-
-
   inputValueToLable(){
-    console.log(this.inputValue);
-    this.lableText = this.inputValue;
+    if(this.inputValue == "Correct"){
+      console.log("correcto");
+      if(this.correctAnswers == 2){
+        this.correctAnswers++;
+      }
+      
+      this.presentModalTriana()
+    }else{
+      this.presentToast();
+    }
+  }
+
+  
+
+  getCheckTAnswer(check){
+   if(check.name == "Answer1"){
+    
+     this.A1 = check.selected;
+     console.log(this.A1);
+     this.presentModalST();
+     this.buttonCheck = false;
+     this.correctAnswers++;
+   }
+   if(check.name == "Answer2"){
+    this.A2 = check.selected;
+    console.log(this.A2);
+  }
+  if(check.name == "Answer3"){
+    this.A3 = check.selected;
+    console.log(this.A3);
+  }
+   
+  }
+
+  getCheckAnswer2(){
+      this.presentModalST();
   }
 
 }
-
-

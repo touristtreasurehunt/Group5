@@ -125,12 +125,7 @@
         <ion-col>   
           <ion-input #myInput type="text" 
           [(ngModel)]="inputValue"></ion-input> 
-            <ion-button class="buttons" size="small" (click)="inputValueToLable()">CHECK</ion-button>
-            <ion-item>
-              <ion-label >
-              {{lableText}}
-              </ion-label>
-            </ion-item>   
+            <ion-button class="buttons" size="small" (click)="inputValueToLable()">CHECK</ion-button>  
         </ion-col> 
       </ion-row>
     </ion-grid>
@@ -146,15 +141,13 @@
     </ion-card-content> 
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
-        </ion-col>
-        <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
-        </ion-col>
-        <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalST()">Answer 3</ion-button>   
-        </ion-col>
+       <ion-list>
+         <ion-item *ngFor="let check of data" (click)="getCheckTAnswer(check)">
+          <ion-label>{{ check.name }}</ion-label>
+          <ion-checkbox [(ngModel)]="check.selected"></ion-checkbox>
+         </ion-item>
+         <ion-button class="buttons" size="small" (click)="getCheckAnswer2()" [hidden]="buttonCheck">CHECK</ion-button>
+       </ion-list>
       </ion-row>
     </ion-grid>
   </ion-card>
