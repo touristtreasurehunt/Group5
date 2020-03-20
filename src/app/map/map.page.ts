@@ -38,6 +38,7 @@ export class MapPage{
   public q10 : boolean = true;
   public q11 : boolean = true;
   public buttonCheck : boolean = true;
+  public buttonCheck2 : boolean = true;
   public buttonColor: string ="primary";
   public buttonColor2: string ="primary";
   public buttonColor3: string ="primary";
@@ -57,10 +58,18 @@ export class MapPage{
       { name: 'Answer2', selected: "false" },
       { name: 'Answer3', selected: "false" }
     ];
+  data2 = [
+      { name: 'Answer1', selected: "false" },
+      { name: 'Answer2', selected: "false" },
+      { name: 'Answer3', selected: "false" }
+    ];
   
     public A1 = "";
     public A2 = "";
     public A3 = "";
+    public A4 = "";
+    public A5 = "";
+    public A6 = "";
 
   ionViewDidEnter() { this.leafletMap(); }
 
@@ -480,20 +489,28 @@ export class MapPage{
   getCheckTAnswer8(check){
     if(check.name == "Answer1"){
      
-      this.A1 = check.selected;
-      console.log(this.A1);
+      this.A4 = check.selected;
+      console.log(this.A4);
       
     }
     if(check.name == "Answer2"){
-     this.A2 = check.selected;
-     console.log(this.A2);
+     this.A5 = check.selected;
+     console.log(this.A5);
      this.presentModalPalacete();
-      this.buttonCheck = false;
-      this.correctAnswers++;
+     let checkboxes = document.querySelectorAll('ion-checkbox');
+     
+     checkboxes[4].checked = true;
+     checkboxes[3].disabled = true;
+     checkboxes[4].disabled = false;
+     checkboxes[5].disabled = true;
+     if(this.buttonCheck2){
+        this.correctAnswers++;
+      }
+      this.buttonCheck2 = false;
    }
    if(check.name == "Answer3"){
-     this.A3 = check.selected;
-     console.log(this.A3);
+     this.A6 = check.selected;
+     console.log(this.A6);
    }
     
    }
