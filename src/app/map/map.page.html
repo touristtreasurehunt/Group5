@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-badge color="success">{{correctAnswers}}</ion-badge>
+    <ion-badge slot="end" color="success">{{correctAnswers}}</ion-badge>
   </ion-toolbar>
 
 </ion-header>
@@ -17,9 +17,6 @@
   <ion-content>
     <ion-list>
       <ion-item menu-close href="#/home" (click)="goToHome()">Home </ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
-      <ion-item>Menu Item</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -64,7 +61,7 @@
     <ion-button fill="clear" class="buttons margin" name="checkButton" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="getSecondAnswer()">CHECK</ion-button>
     <ion-grid>
       <ion-row class="ion-align-items-end">
-        <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
+        <ion-reorder-group id="ion-group" (ionItemReorder)="doReorder($event)" disabled="false">
         <ion-reorder>
           <ion-item >
             <div name="item" class="sizeDiv">
@@ -104,7 +101,7 @@
       </ion-reorder-group>
 
         <ion-col>
-          <ion-button name="hidden" class="hidden" size="small" (click)="presentModalGabinete()">Next Question</ion-button>
+          <ion-button name="hidden" class="hidden margin" size="small" (click)="presentModalGabinete()">SHOW</ion-button>
         </ion-col>
 
         
@@ -123,9 +120,9 @@
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col>   
+          <ion-button class="buttons margin" size="small" (click)="inputValueToLable()">CHECK</ion-button>  
           <ion-input #myInput type="text" 
           [(ngModel)]="inputValue"></ion-input> 
-            <ion-button class="buttons" size="small" (click)="inputValueToLable()">CHECK</ion-button>  
         </ion-col> 
       </ion-row>
     </ion-grid>
@@ -146,7 +143,7 @@
           <ion-label>{{ check.name }}</ion-label>
           <ion-checkbox [(ngModel)]="check.selected"></ion-checkbox>
          </ion-item>
-         <ion-button class="buttons" size="small" (click)="getCheckAnswer2()" [hidden]="buttonCheck">CHECK</ion-button>
+         <!-- <ion-button class="buttons" size="small" (click)="getCheckAnswer2()" [hidden]="buttonCheck">CHECK</ion-button> -->
        </ion-list>
       </ion-row>
     </ion-grid>
@@ -186,9 +183,9 @@
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col>   
+          <ion-button class="buttons margin" size="small" (click)="inputValueToLable2()">CHECK</ion-button>  
           <ion-input #myInput type="text" 
           [(ngModel)]="inputValue2"></ion-input> 
-            <ion-button class="buttons" size="small" (click)="inputValueToLable2()">CHECK</ion-button>  
         </ion-col> 
       </ion-row>
     </ion-grid>

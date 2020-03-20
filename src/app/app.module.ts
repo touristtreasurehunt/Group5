@@ -11,23 +11,23 @@ import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 
-import { ModalPage } from '../app/modal/modal.page';
-import { Modal2Page } from './modal2/modal2.page';
-import { Modal3Page } from './modal3/modal3.page';
-import { Modal4Page } from './modal4/modal4.page';
-import { Modal5Page } from './modal5/modal5.page';
-import { Modal6Page } from './modal6/modal6.page';
-import { Modal7Page } from './modal7/modal7.page';
-import { Modal8Page } from './modal8/modal8.page';
-import { Modal9Page } from './modal9/modal9.page';
-import { Modal10Page } from './modal10/modal10.page';
-import { Modal11Page } from './modal11/modal11.page';
+import { ModalPageModule } from './modal/modal.module';
+import { Modal2PageModule } from './modal2/modal2.module';
+import { Modal3PageModule } from './modal3/modal3.module';
+import { Modal4PageModule } from './modal4/modal4.module';
+import { Modal5PageModule } from './modal5/modal5.module';
+import { Modal6PageModule } from './modal6/modal6.module';
+import { Modal7PageModule } from './modal7/modal7.module';
+import { Modal8PageModule } from './modal8/modal8.module';
+import { Modal9PageModule } from './modal9/modal9.module';
+import { Modal10PageModule } from './modal10/modal10.module';
+import { Modal11PageModule } from './modal11/modal11.module';
 
 @NgModule({
-  declarations: [AppComponent, ModalPage, Modal2Page, Modal3Page, Modal4Page, Modal5Page, Modal6Page, Modal7Page, Modal8Page, Modal9Page, Modal10Page, Modal11Page],
-  entryComponents: [ModalPage, Modal2Page, Modal3Page, Modal4Page, Modal5Page, Modal6Page, Modal7Page, Modal8Page, Modal9Page, Modal10Page, Modal11Page], 
+  declarations: [AppComponent],
+  entryComponents: [ ], 
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(), ModalPageModule, Modal2PageModule, Modal3PageModule, Modal4PageModule, Modal5PageModule, Modal6PageModule, Modal7PageModule, Modal8PageModule, Modal9PageModule, Modal10PageModule, Modal11PageModule
   ],
   providers: [
     StatusBar,

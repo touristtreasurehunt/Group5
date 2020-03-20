@@ -38,13 +38,19 @@ export class MapPage{
   public q10 : boolean = true;
   public q11 : boolean = true;
   public buttonCheck : boolean = true;
-  private buttonColor: string ="primary";
-  private buttonColor2: string ="primary";
-  private buttonColor3: string ="primary";
+  public buttonColor: string ="primary";
+  public buttonColor2: string ="primary";
+  public buttonColor3: string ="primary";
+  public buttonTextColor: string ="color='black'";
+  public buttonTextColor2: string ="color='black'";
+  public buttonTextColor3: string ="color='black'";
   public correctAnswers: number = 0;
   public lableText: string = "";
   public inputValue: string = "";
-
+  public inputValue2: string = "";
+  public inputValue3: string = "";
+  public inputValue4: string = "";
+  
 
   data = [
       { name: 'Answer1', selected: "false" },
@@ -141,7 +147,6 @@ export class MapPage{
   }
 
   async presentModalMilitar() {
-    
     var gobiernoMilitar = L.marker([28.108787, -15.417609]).addTo(this.map);
     gobiernoMilitar.bindPopup("<img src='../../assets/icon/militar.jpg'/> Gran Canaria military command").openPopup();
     this.map.setView([28.108787, -15.417609], 100);
@@ -149,6 +154,12 @@ export class MapPage{
     const modal = await this.modalController.create({
       component: Modal5Page
     });
+    if(this.correctAnswers == 4){
+      this.correctAnswers++;
+    }
+    let ionbuttons = document.querySelectorAll('ion-button');
+    ionbuttons[9].disabled = true;
+    ionbuttons[10].disabled = true;
     return await modal.present();
   }
   async presentModalCabildo() {
@@ -160,6 +171,8 @@ export class MapPage{
     const modal = await this.modalController.create({
       component: Modal6Page
     });
+    let ioninput = document.querySelector('body > app-root > ion-app > ion-router-outlet > app-map > ion-content > ion-card:nth-child(8) > ion-grid > ion-row > ion-col > ion-input')
+    ioninput.setAttribute("disabled", "true");
     return await modal.present();
   }
 
@@ -196,6 +209,8 @@ export class MapPage{
     const modal = await this.modalController.create({
       component: Modal9Page
     });
+    let ioninput = document.querySelector('body > app-root > ion-app > ion-router-outlet > app-map > ion-content > ion-card:nth-child(11) > ion-grid > ion-row > ion-col > ion-input')
+    ioninput.setAttribute("disabled", "true");
     return await modal.present();
   }
 
@@ -208,6 +223,12 @@ export class MapPage{
     const modal = await this.modalController.create({
       component: Modal10Page
     });
+    if(this.correctAnswers == 9){
+      this.correctAnswers++;
+    }
+    let ionbuttons = document.querySelectorAll('ion-button');
+    ionbuttons[17].disabled = true;
+    ionbuttons[18].disabled = true;
     return await modal.present();
   }
 
@@ -219,6 +240,8 @@ export class MapPage{
     const modal = await this.modalController.create({
       component: Modal11Page
     });
+    let ioninput = document.querySelector('body > app-root > ion-app > ion-router-outlet > app-map > ion-content > ion-card:nth-child(13) > ion-grid > ion-row > ion-col > ion-input')
+    ioninput.setAttribute("disabled", "true");
     return await modal.present();
   }
   
@@ -267,7 +290,7 @@ export class MapPage{
     toast.present();
   }
 
-  /*async presentToast2() {
+  async presentToast2() {
     
     const toast = await this.toastController.create({
       message: 'Error',
@@ -277,7 +300,7 @@ export class MapPage{
   cssClass: 'toastAfterHeader'
     });
     toast.present();
-  }*/
+  }
 
   doReorder(ev: any) {
     console.log('Dragged from index', ev.detail.from, 'to', ev.detail.to);
@@ -285,38 +308,40 @@ export class MapPage{
   }
 
   getSecondAnswer(){
+    let iongroup = document.getElementById("ion-group"); 
     let answers = document.getElementsByTagName("ion-label");
     let items = document.getElementsByName("item");
     let button = document.getElementsByName("checkButton");
     let nextQuestion = document.getElementsByName('hidden');
     let counter = 0;
     if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
-      items[0].style.backgroundColor="#10dc60"; answers[0].style.color="white";
+      items[0].parentElement.setAttribute('color', 'success'); answers[0].style.color="white";
       counter++;
     }else{
-      items[0].style.backgroundColor="#f04141"; answers[0].style.color="white";
+      items[0].parentElement.setAttribute('color', 'danger'); answers[0].style.color="white";
     }
     if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
-      items[1].style.backgroundColor="#10dc60"; answers[1].style.color="white";
+      items[1].parentElement.setAttribute('color', 'success'); answers[1].style.color="white";
       counter++;
     }else{
-      items[1].style.backgroundColor="#f04141"; answers[1].style.color="white";
+      items[1].parentElement.setAttribute('color', 'danger'); answers[1].style.color="white";
     }
     if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
-      items[2].style.backgroundColor="#10dc60"; answers[2].style.color="white";
+      items[2].parentElement.setAttribute('color', 'success'); answers[2].style.color="white";
       counter++;
     }else{
-      items[2].style.backgroundColor="#f04141"; answers[2].style.color="white";
+      items[2].parentElement.setAttribute('color', 'danger'); answers[2].style.color="white";
     }
     if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
-      items[3].style.backgroundColor="#10dc60"; answers[3].style.color="white";
+      items[3].parentElement.setAttribute('color', 'success'); answers[3].style.color="white";
       counter++;
     } else{
-      items[3].style.backgroundColor="#f04141"; answers[3].style.color="white";
+      items[3].parentElement.setAttribute('color', 'danger'); answers[3].style.color="white";
     }
 
     if(counter == 4){
       this.correctAnswers++;
+      iongroup.setAttribute("disabled", "true");
       button[0].setAttribute("disabled", "true");
       nextQuestion[0].classList.remove('hidden');
     }
@@ -331,28 +356,28 @@ export class MapPage{
     let nextQuestion = document.getElementsByName('hidden');
     let counter = 0;
     if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
-      items[0].style.backgroundColor="#10dc60"; answers[4].style.color="white";
+      items[0].parentElement.setAttribute('color', 'success'); answers[4].style.color="white";
       counter++;
     }else{
-      items[0].style.backgroundColor="#f04141"; answers[4].style.color="white";
+      items[0].parentElement.setAttribute('color', 'danger'); answers[4].style.color="white";
     }
     if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
-      items[1].style.backgroundColor="#10dc60"; answers[5].style.color="white";
+      items[1].parentElement.setAttribute('color', 'success'); answers[5].style.color="white";
       counter++;
     }else{
-      items[1].style.backgroundColor="#f04141"; answers[5].style.color="white";
+      items[1].parentElement.setAttribute('color', 'danger'); answers[5].style.color="white";
     }
     if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
-      items[2].style.backgroundColor="#10dc60"; answers[6].style.color="white";
+      items[2].parentElement.setAttribute('color', 'success'); answers[6].style.color="white";
       counter++;
     }else{
-      items[2].style.backgroundColor="#f04141"; answers[6].style.color="white";
+      items[2].parentElement.setAttribute('color', 'danger'); answers[6].style.color="white";
     }
     if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
-      items[3].style.backgroundColor="#10dc60"; answers[7].style.color="white";
+      items[3].parentElement.setAttribute('color', 'success'); answers[7].style.color="white";
       counter++;
     } else{
-      items[3].style.backgroundColor="#f04141"; answers[7].style.color="white";
+      items[3].parentElement.setAttribute('color', 'danger'); answers[7].style.color="white";
     }
 
     if(counter == 4){
@@ -369,7 +394,8 @@ export class MapPage{
       if(this.correctAnswers == 2){
         this.correctAnswers++;
       }
-      
+      let ioninput = document.querySelector('body > app-root > ion-app > ion-router-outlet > app-map > ion-content > ion-card:nth-child(5) > ion-grid > ion-row > ion-col > ion-input')
+      ioninput.setAttribute("disabled", "true");
       this.presentModalTriana()
     }else{
       this.presentToast();
@@ -377,7 +403,7 @@ export class MapPage{
   }
 
   inputValueToLable2(){
-    if(this.inputValue == "Correct"){
+    if(this.inputValue2 == "Correct"){
       console.log("Correct");
       if(this.correctAnswers == 5){
         this.correctAnswers++;
@@ -390,7 +416,7 @@ export class MapPage{
   }
 
   inputValueToLable3(){
-    if(this.inputValue == "Correct"){
+    if(this.inputValue3 == "Correct"){
       console.log("Correct");
       if(this.correctAnswers == 8){
         this.correctAnswers++;
@@ -403,7 +429,7 @@ export class MapPage{
   }
 
   inputValueToLable4(){
-    if(this.inputValue == "Correct"){
+    if(this.inputValue4 == "Correct"){
       console.log("Correct");
       if(this.correctAnswers == 10){
         this.correctAnswers++;
@@ -423,8 +449,16 @@ export class MapPage{
      this.A1 = check.selected;
      console.log(this.A1);
      this.presentModalST();
+     let checkboxes = document.querySelectorAll('ion-checkbox');
+     
+     checkboxes[0].checked = true;
+     checkboxes[0].disabled = false;
+     checkboxes[1].disabled = true;
+     checkboxes[2].disabled = true;
+     if(this.buttonCheck){
+       this.correctAnswers++;
+     }
      this.buttonCheck = false;
-     this.correctAnswers++;
    }
    if(check.name == "Answer2"){
     this.A2 = check.selected;

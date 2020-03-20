@@ -12,10 +12,14 @@ ion-toolbar {
 }
 
 .slide-image {
-  max-height: 50%;
-  max-width: 60%;
+  max-height: 30%;
+  max-width: 40%;
   margin: 36px 0;
   pointer-events: none;
+}
+
+#last-img {
+  margin-top: 20vh;
 }
 
 b {
