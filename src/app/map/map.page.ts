@@ -54,14 +54,14 @@ export class MapPage{
   
 
   data = [
-      { name: 'Answer1', selected: "false" },
-      { name: 'Answer2', selected: "false" },
-      { name: 'Answer3', selected: "false" }
+      { name: 'San Telmo park', selected: "false" },
+      { name: 'Santa Catalina park', selected: "false" },
+      { name: 'Santa Cethlean park', selected: "false" }
     ];
   data2 = [
-      { name: 'Answer1', selected: "false" },
-      { name: 'Answer2', selected: "false" },
-      { name: 'Answer3', selected: "false" }
+      { name: 'No one', selected: "false" },
+      { name: 'His wife', selected: "false" },
+      { name: 'His mother', selected: "false" }
     ];
   
     public A1 = "";
@@ -85,9 +85,6 @@ export class MapPage{
     L.control.zoom({
       position:'topright'
     }).addTo(this.map);
-
-    var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
-    teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
     this.map.setView([28.103632, -15.413838], 100); 
 
   }
@@ -109,7 +106,6 @@ export class MapPage{
   constructor(private router: Router, public modalController: ModalController, public toastController: ToastController, private menu: MenuController) { }
 
   async presentModal() {
-
     var teatro = L.marker([28.103632, -15.413838]).addTo(this.map);
     teatro.bindPopup("<img src='../../assets/icon/teatroperezgaldos.jpg'/> Pérez Galdos Theater").openPopup();
     this.map.setView([28.103632, -15.413838], 100); 
@@ -167,8 +163,6 @@ export class MapPage{
       this.correctAnswers++;
     }
     let ionbuttons = document.querySelectorAll('ion-button');
-    ionbuttons[9].disabled = true;
-    ionbuttons[10].disabled = true;
     return await modal.present();
   }
   async presentModalCabildo() {
@@ -223,11 +217,10 @@ export class MapPage{
     return await modal.present();
   }
 
-  async presentModalColon() {
-    
-    var santaAna = L.marker([28.100555, -15.415743]).addTo(this.map);
-    santaAna.bindPopup("<img src='../../assets/icon/antaAna.jpg'/> Santa Ana Cathedral").openPopup();
-    this.map.setView([28.100555, -15.415743], 100);
+  async presentModalColon() { 
+    var colon = L.marker([28.101802, -15.414156]).addTo(this.map);
+    colon.bindPopup("<img src='../../assets/icon/colon.jpg'/> Columbus house").openPopup();
+    this.map.setView([28.101802, -15.414156], 100);
     this.q11 = false;
     const modal = await this.modalController.create({
       component: Modal10Page
@@ -398,7 +391,7 @@ export class MapPage{
   }
 
   inputValueToLable(){
-    if(this.inputValue == "Correct"){
+    if(this.inputValue == "Modernist"){
       console.log("Correct");
       if(this.correctAnswers == 2){
         this.correctAnswers++;
@@ -412,7 +405,7 @@ export class MapPage{
   }
 
   inputValueToLable2(){
-    if(this.inputValue2 == "Correct"){
+    if(this.inputValue2 == "1930"){
       console.log("Correct");
       if(this.correctAnswers == 5){
         this.correctAnswers++;
@@ -425,7 +418,7 @@ export class MapPage{
   }
 
   inputValueToLable3(){
-    if(this.inputValue3 == "Correct"){
+    if(this.inputValue3 == "Pieter Van der Does"){
       console.log("Correct");
       if(this.correctAnswers == 8){
         this.correctAnswers++;
@@ -438,7 +431,7 @@ export class MapPage{
   }
 
   inputValueToLable4(){
-    if(this.inputValue4 == "Correct"){
+    if(this.inputValue4 == "The Real Village of the Three Palms"){
       console.log("Correct");
       if(this.correctAnswers == 10){
         this.correctAnswers++;
@@ -453,7 +446,7 @@ export class MapPage{
   
 
   getCheckTAnswer(check){
-   if(check.name == "Answer1"){
+   if(check.name == "San Telmo park"){
     
      this.A1 = check.selected;
      console.log(this.A1);
@@ -487,13 +480,13 @@ export class MapPage{
 
 
   getCheckTAnswer8(check){
-    if(check.name == "Answer1"){
+    if(check.name == "No one"){
      
       this.A4 = check.selected;
       console.log(this.A4);
       
     }
-    if(check.name == "Answer2"){
+    if(check.name == "His wife"){
      this.A5 = check.selected;
      console.log(this.A5);
      this.presentModalPalacete();
@@ -508,7 +501,7 @@ export class MapPage{
       }
       this.buttonCheck2 = false;
    }
-   if(check.name == "Answer3"){
+   if(check.name == "His mother"){
      this.A6 = check.selected;
      console.log(this.A6);
    }
