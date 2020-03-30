@@ -27,6 +27,7 @@ import { IonReorderGroup } from '@ionic/angular';
 export class MapPage{
 
   map: Map;
+
   public q2 : boolean = true;
   public q3 : boolean = true;
   public q4 : boolean = true;
@@ -37,20 +38,31 @@ export class MapPage{
   public q9 : boolean = true;
   public q10 : boolean = true;
   public q11 : boolean = true;
+
   public buttonCheck : boolean = true;
   public buttonCheck2 : boolean = true;
+
   public buttonColor: string ="primary";
   public buttonColor2: string ="primary";
   public buttonColor3: string ="primary";
-  public buttonTextColor: string ="color='black'";
-  public buttonTextColor2: string ="color='black'";
-  public buttonTextColor3: string ="color='black'";
+
+  public buttonColorQ5: string ="primary";
+  public buttonColor2Q5: string ="primary";
+  public buttonColor3Q5: string ="primary";
+
+  public buttonColorQ10: string ="primary";
+  public buttonColor2Q10: string ="primary";
+  public buttonColor3Q10: string ="primary";
+
   public correctAnswers: number = 0;
+
   public lableText: string = "";
   public inputValue: string = "";
   public inputValue2: string = "";
   public inputValue3: string = "";
   public inputValue4: string = "";
+
+  public gabinete: string = "X";
   
 
   data = [
@@ -64,12 +76,12 @@ export class MapPage{
       { name: 'His mother', selected: "false" }
     ];
   
-    public A1 = "";
-    public A2 = "";
-    public A3 = "";
-    public A4 = "";
-    public A5 = "";
-    public A6 = "";
+  public A1 = "";
+  public A2 = "";
+  public A3 = "";
+  public A4 = "";
+  public A5 = "";
+  public A6 = "";
 
   ionViewDidEnter() { this.leafletMap(); }
 
@@ -159,10 +171,7 @@ export class MapPage{
     const modal = await this.modalController.create({
       component: Modal5Page
     });
-    if(this.correctAnswers == 4){
-      this.correctAnswers++;
-    }
-    let ionbuttons = document.querySelectorAll('ion-button');
+    
     return await modal.present();
   }
   async presentModalCabildo() {
@@ -225,10 +234,7 @@ export class MapPage{
     const modal = await this.modalController.create({
       component: Modal10Page
     });
-    if(this.correctAnswers == 9){
-      this.correctAnswers++;
-    }
-    let ionbuttons = document.querySelectorAll('ion-button');
+
     return await modal.present();
   }
 
@@ -262,6 +268,24 @@ export class MapPage{
   getColorWrong2(){
     this.buttonColor2="danger";
   }
+
+  getColorWrongQ5(){
+    this.buttonColorQ5='danger';
+    
+  }
+  
+  getColorWrong2Q5(){
+    this.buttonColor3Q5="danger";
+  }
+
+  getColorWrongQ10(){
+    this.buttonColor2Q10='danger';
+    
+  }
+  
+  getColorWrong2Q10(){
+    this.buttonColor3Q10="danger";
+  }
   
   getColorRight(){
     if(this.buttonColor3 !== "success"){
@@ -271,12 +295,19 @@ export class MapPage{
   }
 
 
-
-/*getFirstRight(){
-  if(this.buttonColor3 !== "green"){
-    this.correctAnswers++;
+  getColorRightQ5(){
+    if(this.buttonColor2Q5 !== "success"){
+      this.correctAnswers++;
+    }
+    this.buttonColor2Q5 = "success";
   }
-}*/
+
+  getColorRightQ10(){
+    if(this.buttonColorQ10 !== "success"){
+      this.correctAnswers++;
+    }
+    this.buttonColorQ10 = "success";
+  }
 
   async presentToast() {
     
@@ -314,33 +345,34 @@ export class MapPage{
     let button = document.getElementsByName("checkButton");
     let nextQuestion = document.getElementsByName('hidden');
     let counter = 0;
-    if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
-      items[0].parentElement.setAttribute('color', 'success'); answers[0].style.color="white";
+    if(answers[0].innerText === "Gómez Bosch"){
+      items[0].parentElement.setAttribute('color', 'success'); 
       counter++;
     }else{
-      items[0].parentElement.setAttribute('color', 'danger'); answers[0].style.color="white";
+      items[0].parentElement.setAttribute('color', 'danger'); 
     }
-    if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
-      items[1].parentElement.setAttribute('color', 'success'); answers[1].style.color="white";
+    if(answers[1].innerText === "Massieu y Matos"){
+      items[1].parentElement.setAttribute('color', 'success'); 
       counter++;
     }else{
-      items[1].parentElement.setAttribute('color', 'danger'); answers[1].style.color="white";
+      items[1].parentElement.setAttribute('color', 'danger'); 
     }
-    if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
-      items[2].parentElement.setAttribute('color', 'success'); answers[2].style.color="white";
+    if(answers[2].innerText === "Mariano Laforet"){
+      items[2].parentElement.setAttribute('color', 'success'); 
       counter++;
     }else{
-      items[2].parentElement.setAttribute('color', 'danger'); answers[2].style.color="white";
+      items[2].parentElement.setAttribute('color', 'danger'); 
     }
-    if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
-      items[3].parentElement.setAttribute('color', 'success'); answers[3].style.color="white";
+    if(answers[3].innerText === "Altolaguirre"){
+      items[3].parentElement.setAttribute('color', 'success');
       counter++;
     } else{
-      items[3].parentElement.setAttribute('color', 'danger'); answers[3].style.color="white";
+      items[3].parentElement.setAttribute('color', 'danger'); 
     }
 
     if(counter == 4){
       this.correctAnswers++;
+      this.gabinete = "Literary Cabinet";
       iongroup.setAttribute("disabled", "true");
       button[0].setAttribute("disabled", "true");
       nextQuestion[0].classList.remove('hidden');
@@ -350,34 +382,34 @@ export class MapPage{
 
 
   getSevenAnswer(){
-    let answers = document.getElementsByTagName("ion-label");
+    let answers = document.getElementsByName("q7");
     let items = document.getElementsByName("item2");
     let button = document.getElementsByName("checkButton");
     let nextQuestion = document.getElementsByName('hidden');
     let counter = 0;
-    if(answers[0].innerText === "Answer 2 Keep close to Nature's heart"){
-      items[0].parentElement.setAttribute('color', 'success'); answers[4].style.color="white";
+    if(answers[0].innerText === "Building"){
+      items[0].parentElement.setAttribute('color', 'success');
       counter++;
     }else{
-      items[0].parentElement.setAttribute('color', 'danger'); answers[4].style.color="white";
+      items[0].parentElement.setAttribute('color', 'danger');
     }
-    if(answers[1].innerText === "Answer 3 Keep close to Nature's heart"){
-      items[1].parentElement.setAttribute('color', 'success'); answers[5].style.color="white";
+    if(answers[1].innerText === "Attack"){
+      items[1].parentElement.setAttribute('color', 'success');
       counter++;
     }else{
-      items[1].parentElement.setAttribute('color', 'danger'); answers[5].style.color="white";
+      items[1].parentElement.setAttribute('color', 'danger'); 
     }
-    if(answers[2].innerText === "Answer 4 Keep close to Nature's heart"){
-      items[2].parentElement.setAttribute('color', 'success'); answers[6].style.color="white";
+    if(answers[2].innerText === "Repair"){
+      items[2].parentElement.setAttribute('color', 'success'); 
       counter++;
     }else{
-      items[2].parentElement.setAttribute('color', 'danger'); answers[6].style.color="white";
+      items[2].parentElement.setAttribute('color', 'danger'); 
     }
-    if(answers[3].innerText === "Answer 1 Keep close to Nature's heart"){
-      items[3].parentElement.setAttribute('color', 'success'); answers[7].style.color="white";
+    if(answers[3].innerText === "Declared historical monument"){
+      items[3].parentElement.setAttribute('color', 'success'); 
       counter++;
     } else{
-      items[3].parentElement.setAttribute('color', 'danger'); answers[7].style.color="white";
+      items[3].parentElement.setAttribute('color', 'danger'); 
     }
 
     if(counter == 4){

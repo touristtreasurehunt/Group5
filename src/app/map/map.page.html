@@ -24,7 +24,7 @@
 <ion-router-outlet id="main"></ion-router-outlet>
 
 <ion-content fullscreen>
-  <div id="mapId">
+  <div id="mapId" class="position-fixed">
   </div>
       <ion-button expand="block" shape="round" (click)="locatePosition()" class="fixedButton">My Location</ion-button>
   <ion-card>
@@ -43,7 +43,7 @@
           <ion-button  fill="clear" class="buttons" size="small" (click)="getColorWrong2()" [color]="buttonColor2" (click)="presentToast()">It's always been Pérez Galdos</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button fill="clear" class="buttons" (click)="getColorRight()" [color]="buttonColor3" size="small" (click)="presentModal()">New Theater</ion-button>
+          <ion-button fill="clear" class="buttons" size="small" (click)="getColorRight()" [color]="buttonColor3"  (click)="presentModal()">New Theater</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -54,45 +54,44 @@
       <ion-card-subtitle>Question 2</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      Put the name of the artist that have paintings displayed at the {{ gabinete }} in cronological order.
     </ion-card-content> 
-    <ion-button fill="clear" class="buttons margin" name="checkButton" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="getSecondAnswer()">CHECK</ion-button>
+    <ion-button fill="clear" class="buttons margin" name="checkButton" size="small" (click)="getSecondAnswer()">CHECK</ion-button>
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-reorder-group id="ion-group" (ionItemReorder)="doReorder($event)" disabled="false">
         <ion-reorder>
-          <ion-item >
+          <ion-item class="itemBorderReoder">
             <div name="item" class="sizeDiv">
               <ion-label>
-                Answer 1 Keep close to Nature's heart
+                Massieu y Matos
               </ion-label>
             </div>
           </ion-item>
         </ion-reorder>
         <ion-reorder>
-          <ion-item>
+          <ion-item class="itemBorderReoder">
             <div name="item" class="sizeDiv">
               <ion-label>
-                Answer 2 Keep close to Nature's heart
+                Gómez Bosch
               </ion-label>
             </div>
           </ion-item>
         </ion-reorder>
         <ion-reorder>
-          <ion-item>
+          <ion-item class="itemBorderReoder">
             <div name="item" class="sizeDiv">
               <ion-label>
-                Answer 3 Keep close to Nature's heart
+                Mariano Laforet
               </ion-label>
             </div>
           </ion-item>
         </ion-reorder>
         <ion-reorder>
-          <ion-item>
+          <ion-item class="itemBorderReoder">
             <div name="item" class="sizeDiv">
               <ion-label>
-                Answer 4 Keep close to Nature's heart
+                Altolaguirre
               </ion-label>
             </div>
           </ion-item>
@@ -100,7 +99,7 @@
       </ion-reorder-group>
 
         <ion-col>
-          <ion-button name="hidden" class="hidden margin" size="small" (click)="presentModalGabinete()">SHOW INFO</ion-button>
+          <ion-button name="hidden" class="hidden marginRe" size="small" (click)="presentModalGabinete()">SHOW INFO</ion-button>
         </ion-col>
 
         
@@ -156,13 +155,13 @@
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Pedro Infinito </ion-button>
-        </ion-col>
+            <ion-button fill="clear" class="buttons" size="small" (click)="getColorWrongQ5()" [color]="buttonColorQ5"  (click)="presentToast()">Pedro Infinito &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-button>
+        </ion-col><br>
         <ion-col> 
-            <ion-button (click)="getColorRight()" fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentModalMilitar()">Triana</ion-button> 
-        </ion-col>
+            <ion-button fill="clear" class="buttons" size="small" (click)="getColorRightQ5()" [color]="buttonColor2Q5"  (click)="presentModalMilitar()">Triana &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-button>
+        </ion-col><br> 
         <ion-col>    
-            <ion-button  fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3" (click)="presentToast2()">Guanarteme</ion-button>   
+            <ion-button fill="clear" class="buttons" size="small" (click)="getColorWrong2Q5()" [color]="buttonColor3Q5"  (click)="presentToast2()">Guanarteme</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -191,45 +190,44 @@
       <ion-card-subtitle>Question 7</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+     Put in cronological order the major events that took place in the next marker:
     </ion-card-content> 
     <ion-button fill="clear" class="buttons margin" name="checkButton" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="getSevenAnswer()">CHECK</ion-button>
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
         <ion-reorder>
-          <ion-item >
+          <ion-item class="itemBorderReoder">
             <div name="item2" class="sizeDiv">
-              <ion-label>
-                Answer 1 Keep close to Nature's heart
+              <ion-label name="q7">
+                Attacked
               </ion-label>
             </div>
           </ion-item>
         </ion-reorder>
         <ion-reorder>
-          <ion-item>
+          <ion-item class="itemBorderReoder">
             <div name="item2" class="sizeDiv">
-              <ion-label>
-                Answer 2 Keep close to Nature's heart
+              <ion-label name="q7">
+                Declared historical monument
               </ion-label>
             </div>
           </ion-item>
         </ion-reorder>
         <ion-reorder>
-          <ion-item>
+          <ion-item class="itemBorderReoder">
             <div name="item2" class="sizeDiv">
-              <ion-label>
-                Answer 3 Keep close to Nature's heart
+              <ion-label name="q7">
+                Repaired
               </ion-label>
             </div>
           </ion-item>
         </ion-reorder>
         <ion-reorder>
-          <ion-item>
+          <ion-item class="itemBorderReoder">
             <div name="item2" class="sizeDiv">
-              <ion-label>
-                Answer 4 Keep close to Nature's heart
+              <ion-label name="q7">
+                Built
               </ion-label>
             </div>
           </ion-item>
@@ -237,7 +235,7 @@
       </ion-reorder-group>
 
         <ion-col>
-          <ion-button name="hidden" class="hidden margin" size="small" (click)="presentModalMata()">SHOW INFO</ion-button>
+          <ion-button name="hidden" class="hidden marginRe" size="small" (click)="presentModalMata()">SHOW INFO</ion-button>
         </ion-col>
 
         
@@ -287,19 +285,18 @@
       <ion-card-subtitle>Question 10</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      What if the purpouse of the Columbus house?
     </ion-card-content> 
     <ion-grid>
       <ion-row class="ion-align-items-end">
         <ion-col> 
-            <ion-button fill="clear" class="buttons" size="small" [style.backgroundColor]="buttonColor" [style.color]="buttonTextColor"  (click)="presentToast() ">Answer 1</ion-button>
+            <ion-button fill="clear" class="buttons" [color]="buttonColorQ10" size="small" (click)="getColorRightQ10()" (click)="presentModalColon()">All of them and more &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-button>
         </ion-col>
         <ion-col> 
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor2" size="small" [style.color]="buttonTextColor2"  (click)="presentToast2()">Answer 2</ion-button> 
+            <ion-button fill="clear" class="buttons" [color]="buttonColor2Q10" size="small" (click)="getColorWrongQ10()" (click)="presentToast2()">Library &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-button> 
         </ion-col>
         <ion-col>    
-            <ion-button fill="clear" class="buttons" [style.backgroundColor]="buttonColor3" size="small" [style.color]="buttonTextColor3"  (click)="presentModalColon()">Answer 3</ion-button>   
+            <ion-button fill="clear" class="buttons" [color]="buttonColor3Q10" size="small" (click)="getColorWrong2Q10()" (click)="presentToast()">Museum</ion-button>   
         </ion-col>
       </ion-row>
     </ion-grid>
