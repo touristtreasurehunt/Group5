@@ -387,19 +387,19 @@ export class MapPage{
     let button = document.getElementsByName("checkButton");
     let nextQuestion = document.getElementsByName('hidden');
     let counter = 0;
-    if(answers[0].innerText === "Building"){
+    if(answers[0].innerText === "Built"){
       items[0].parentElement.setAttribute('color', 'success');
       counter++;
     }else{
       items[0].parentElement.setAttribute('color', 'danger');
     }
-    if(answers[1].innerText === "Attack"){
+    if(answers[1].innerText === "Attacked"){
       items[1].parentElement.setAttribute('color', 'success');
       counter++;
     }else{
       items[1].parentElement.setAttribute('color', 'danger'); 
     }
-    if(answers[2].innerText === "Repair"){
+    if(answers[2].innerText === "Repaired"){
       items[2].parentElement.setAttribute('color', 'success'); 
       counter++;
     }else{
