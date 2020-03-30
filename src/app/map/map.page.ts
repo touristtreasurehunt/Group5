@@ -229,8 +229,6 @@ export class MapPage{
       this.correctAnswers++;
     }
     let ionbuttons = document.querySelectorAll('ion-button');
-    ionbuttons[17].disabled = true;
-    ionbuttons[18].disabled = true;
     return await modal.present();
   }
 
