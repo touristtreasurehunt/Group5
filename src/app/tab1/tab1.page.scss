@@ -7,6 +7,10 @@ ion-content{
   --background: url('../../assets/icon/fondo.jpg') 0 0/100% 100% no-repeat; 
 }
 
+h1{
+  margin-left: 24%;
+}
+
 ion-toolbar {
   --background: transparent;
   --ion-color-base: transparent !important;
@@ -36,6 +40,6 @@ ion-toolbar {
 }
 .buttonbotleft{
 
-  left: 72%;
+  left: 80%;
  
 }
